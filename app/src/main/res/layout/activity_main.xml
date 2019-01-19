@@ -7,20 +7,21 @@
     tools:context=".MainActivity">
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/shift_main_viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tab_main_bottomNavigationView" />
 
     <android.support.design.widget.BottomNavigationView
+        android:id="@+id/tab_main_bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         app:itemBackground="@null"
-        app:menu="@menu/bottom_navigation">
-
-    </android.support.design.widget.BottomNavigationView>
+        app:itemIconTint="@drawable/bottom_navigation_selector"
+        app:itemTextColor="@drawable/bottom_navigation_selector"
+        app:menu="@menu/bottom_navigation" />
 
 
 </RelativeLayout>
