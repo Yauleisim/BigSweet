@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="bottom_navigation_unchecked">#757575</color>
+    <color name="text_color">#171717</color>
 </resources>

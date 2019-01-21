@@ -3,13 +3,13 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_bottom_home"
-        android:title="首页" />
+        android:title="@string/main_home" />
     <item
         android:id="@+id/navigation_shop"
         android:icon="@drawable/ic_bottom_shop"
-        android:title="商城" />
+        android:title="@string/main_shop" />
     <item
         android:id="@+id/navigation_person"
         android:icon="@drawable/ic_bottom_me"
-        android:title="个人" />
+        android:title="@string/main_person" />
 </menu>

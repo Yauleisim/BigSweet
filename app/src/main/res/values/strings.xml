@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">BigSweet</string>
+    <string name="app_name">大甜甜</string>
+
+    <string name="main_person">个人</string>
+    <string name="main_shop">商城</string>
+    <string name="main_home">首页</string>
+
+    <string name="person_like">收藏清单</string>
+    <string name="person_settings">设置</string>
+    <string name="person_record">发帖记录</string>
+
 </resources>
