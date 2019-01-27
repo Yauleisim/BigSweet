@@ -6,4 +6,5 @@
 
     <color name="bottom_navigation_unchecked">#757575</color>
     <color name="text_color">#171717</color>
+    <color name="bg_separator_view">#EDEDED</color>
 </resources>

@@ -1,106 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/avatar_person_imageView"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="10dp"
+        android:src="@mipmap/ic_person_avatar"
+        app:layout_constraintBottom_toTopOf="@+id/separator_one_person_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/person_default_username"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/avatar_person_imageView"
+        app:layout_constraintTop_toTopOf="@id/avatar_person_imageView" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#EDEDED" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_like_list" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/person_like"
-            android:textColor="@color/text_color"
-            android:textSize="16dp" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/person_default_signature"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
+        app:layout_constraintStart_toEndOf="@+id/avatar_person_imageView" />
 
     <View
+        android:id="@+id/separator_one_person_view"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#EDEDED" />
+        android:layout_height="10dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/bg_separator_view"
+        app:layout_constraintTop_toBottomOf="@+id/avatar_person_imageView" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:gravity="center_vertical">
+    <ImageView
+        android:id="@+id/like_person_imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_like_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator_one_person_view" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_post_record" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/person_record"
-            android:textColor="@color/text_color"
-            android:textSize="16dp" />
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/person_like"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/separator_two_person_view"
+        app:layout_constraintStart_toEndOf="@id/like_person_imageView"
+        app:layout_constraintTop_toBottomOf="@id/separator_one_person_view"
+        app:layout_constraintVertical_bias="0.5" />
 
     <View
+        android:id="@+id/separator_two_person_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#EDEDED" />
+        android:layout_marginTop="16dp"
+        android:background="@color/bg_separator_view"
+        app:layout_constraintTop_toBottomOf="@+id/like_person_imageView" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:gravity="center_vertical">
+    <ImageView
+        android:id="@+id/post_person_imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_post_record"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator_two_person_view" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_person_settings" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/person_settings"
-            android:textColor="@color/text_color"
-            android:textSize="16dp" />
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/person_record"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/separator_three_person_view"
+        app:layout_constraintStart_toEndOf="@id/post_person_imageView"
+        app:layout_constraintTop_toBottomOf="@id/separator_two_person_view"
+        app:layout_constraintVertical_bias="0.5" />
 
     <View
+        android:id="@+id/separator_three_person_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#EDEDED" />
+        android:layout_marginTop="16dp"
+        android:background="@color/bg_separator_view"
+        app:layout_constraintTop_toBottomOf="@+id/post_person_imageView" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/settings_person_imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_person_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator_three_person_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/person_settings"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/separator_four_person_view"
+        app:layout_constraintStart_toEndOf="@id/settings_person_imageView"
+        app:layout_constraintTop_toBottomOf="@id/separator_three_person_view"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <View
+        android:id="@+id/separator_four_person_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/bg_separator_view"
+        app:layout_constraintTop_toBottomOf="@+id/settings_person_imageView" />
+
+</android.support.constraint.ConstraintLayout>
