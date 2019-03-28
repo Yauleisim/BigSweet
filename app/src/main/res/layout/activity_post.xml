@@ -1,165 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/back_post_imageView"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="?android:attr/selectableItemBackground"
         android:padding="10dp"
         android:src="@drawable/ic_back_left"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="发表"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:id="@+id/send_post_button"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_post_button"
+        android:text="@string/activity_post_send"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/input_post_editText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/input_post_editText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="null"
-        android:hint="分享你的甜品吧"
+        android:layout_height="150dp"
+        android:background="@null"
+        android:gravity="start"
+        android:hint="@string/activity_post_hint"
         android:padding="20dp"
         android:textColor="@color/text_color"
         android:textCursorDrawable="@color/colorPrimary"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/back_post_imageView" />
 
-    <View
-        android:id="@+id/separator_one_post_view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/bg_separator_view"
+    <ImageView
+        android:id="@+id/add_picture_post_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_picture"
+        app:layout_constraintBottom_toTopOf="@id/location_post_constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_post_editText" />
 
-    <ImageView
-        android:id="@+id/location_post_imageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_post_location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_one_post_view" />
-
-    <TextView
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/location_post_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="所在位置"
-        android:textColor="@color/text_color"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/separator_two_post_view"
-        app:layout_constraintStart_toEndOf="@id/location_post_imageView"
-        app:layout_constraintTop_toBottomOf="@id/separator_one_post_view"
-        app:layout_constraintVertical_bias="0.5" />
+        android:layout_marginTop="100dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@id/public_post_constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/add_picture_post_imageView">
 
-    <ImageView
+        <View
+            android:id="@+id/separator_one_post_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_separator_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/location_post_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_post_location"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/activity_post_location"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/location_post_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_back_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/public_post_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_back_right"
-        app:layout_constraintBottom_toTopOf="@id/separator_two_post_view"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_one_post_view"
-        app:layout_constraintVertical_bias="0.5" />
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@id/topic_post_constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/location_post_constraintLayout">
 
-    <View
-        android:id="@+id/separator_two_post_view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/bg_separator_view"
-        app:layout_constraintTop_toBottomOf="@id/location_post_imageView" />
+        <View
+            android:id="@+id/separator_two_post_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_separator_view"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/public_post_imageView"
+        <ImageView
+            android:id="@+id/public_post_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_post_public"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/activity_post_public"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/public_post_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_back_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/topic_post_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_post_public"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_two_post_view" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="谁可以看"
-        android:textColor="@color/text_color"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/separator_three_post_view"
-        app:layout_constraintStart_toEndOf="@id/public_post_imageView"
-        app:layout_constraintTop_toBottomOf="@id/separator_two_post_view"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_back_right"
-        app:layout_constraintBottom_toTopOf="@id/separator_three_post_view"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_two_post_view"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <View
-        android:id="@+id/separator_three_post_view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/bg_separator_view"
-        app:layout_constraintTop_toBottomOf="@id/public_post_imageView" />
-
-    <ImageView
-        android:id="@+id/topic_post_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_post_topic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_three_post_view" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="参与话题"
-        android:textColor="@color/text_color"
-        android:textSize="16sp"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@id/separator_four_post_view"
-        app:layout_constraintStart_toEndOf="@id/topic_post_imageView"
-        app:layout_constraintTop_toBottomOf="@id/separator_three_post_view"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@id/public_post_constraintLayout">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_back_right"
-        app:layout_constraintBottom_toTopOf="@id/separator_four_post_view"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_three_post_view"
-        app:layout_constraintVertical_bias="0.5" />
+        <View
+            android:id="@+id/separator_three_post_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_separator_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/topic_post_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_post_topic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/activity_post_topic"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/topic_post_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_back_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <View
         android:id="@+id/separator_four_post_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="16dp"
         android:background="@color/bg_separator_view"
-        app:layout_constraintTop_toBottomOf="@id/topic_post_imageView" />
+        app:layout_constraintTop_toBottomOf="@id/topic_post_constraintLayout" />
 
 </android.support.constraint.ConstraintLayout>

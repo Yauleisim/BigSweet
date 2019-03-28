@@ -1,6 +1,5 @@
 package com.graduation.yau.bigsweet;
 
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -29,6 +28,5 @@ public class ShiftViewPagerAdapter extends FragmentStatePagerAdapter {
     public void addFragment(Fragment fragment) {
         mFragmentList.add(fragment);
     }
-
 
 }

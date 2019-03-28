@@ -1,5 +1,6 @@
 package com.graduation.yau.bigsweet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        initView(root);
+        return root;
     }
 
     @Override
@@ -21,5 +24,19 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    private void initView(View root) {
+        root.findViewById(R.id.post_home_floatingActionButton).setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.post_home_floatingActionButton:
+                Intent intent = new Intent(getActivity(), PostActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+    }
 }
