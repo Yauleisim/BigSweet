@@ -5,21 +5,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
+import com.graduation.yau.bigsweet.base.BaseActivty;
+
 /**
  * Created by YAULEISIM on 2019/3/24.
  */
 
-public class PostActivity extends AppCompatActivity implements View.OnClickListener {
+public class PostActivity extends BaseActivty {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_post);
-
-        initView();
     }
 
-    private void initView() {
+    @Override
+    protected void loadLayout() {
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_post);
+    }
+
+    @Override
+    protected void initEvent() {
         findViewById(R.id.back_post_imageView).setOnClickListener(this);
         findViewById(R.id.public_post_constraintLayout).setOnClickListener(this);
         findViewById(R.id.topic_post_constraintLayout).setOnClickListener(this);

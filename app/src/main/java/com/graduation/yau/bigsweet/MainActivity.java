@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.graduation.yau.bigsweet.base.BaseActivty;
+
+public class MainActivity extends BaseActivty {
 
     protected ViewPager mShiftViewPager;
     private ShiftViewPagerAdapter mShiftViewPagerAdapter;
@@ -17,18 +19,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        initView();
-        initEvent();
     }
 
-    private void initView() {
+    @Override
+    protected void loadLayout() {
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void initView() {
         mShiftViewPager = findViewById(R.id.shift_main_viewPager);
         mBottomNavigationView = findViewById(R.id.tab_main_bottomNavigationView);
     }
 
-    private void initEvent() {
+    @Override
+    protected void initEvent() {
         mShiftViewPagerAdapter = new ShiftViewPagerAdapter(getSupportFragmentManager());
         mShiftViewPagerAdapter.addFragment(new HomeFragment());
         mShiftViewPagerAdapter.addFragment(new ShopFragment());
