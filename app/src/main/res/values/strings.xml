@@ -17,4 +17,12 @@
     <string name="activity_post_topic">参与话题</string>
     <string name="activity_post_hint">分享你的甜品吧</string>
 
+    <string name="activity_settings_title">设置</string>
+    <string name="activity_settings_user_msg">个人资料</string>
+    <string name="activity_settings_account_and_security">账号与安全</string>
+    <string name="activity_settings_certification">申请认证</string>
+    <string name="activity_settings_about">关于一点甜</string>
+    <string name="activity_settings_feedback">意见反馈</string>
+    <string name="activity_settings_sign_out">退出</string>
+
 </resources>

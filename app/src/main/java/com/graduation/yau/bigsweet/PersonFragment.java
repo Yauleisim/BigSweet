@@ -1,5 +1,6 @@
 package com.graduation.yau.bigsweet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,6 +38,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
             case R.id.post_person_constraintLayout:
                 break;
             case R.id.settings_person_constraintLayout:
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
