@@ -44,4 +44,6 @@
     <string name="activity_forget_number">手机号/邮箱</string>
     <string name="activity_forget_reset">重置密码</string>
 
+    <string name="activity_home_search">请输入您想要搜索的内容</string>
+
 </resources>
