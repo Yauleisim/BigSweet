@@ -4,90 +4,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/avatar_person_imageView"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:padding="10dp"
-        android:src="@mipmap/ic_person_avatar"
-        app:layout_constraintBottom_toTopOf="@id/separator_one_person_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/user_name_person_textView"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/user_msg_person_constraintLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/activity_person_default_username"
-        android:textColor="@color/text_color"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@id/avatar_person_imageView"
-        app:layout_constraintTop_toTopOf="@id/avatar_person_imageView" />
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/separator_one_person_view">
 
-    <TextView
-        android:id="@+id/sign_out_state_person_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/activity_person_sign_out"
-        android:textColor="@color/text_color"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
-        app:layout_constraintStart_toEndOf="@id/avatar_person_imageView"
-        app:layout_constraintTop_toTopOf="@id/avatar_person_imageView"
-        app:layout_constraintVertical_bias="0.5" />
+        <ImageView
+            android:id="@+id/avatar_person_imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:padding="10dp"
+            android:src="@mipmap/ic_person_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/sign_in_person_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/bg_sign_in_tv"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:padding="5dp"
-        android:text="@string/activity_person_sign_in"
-        android:textColor="@color/colorPrimary"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/avatar_person_imageView"
-        app:layout_constraintVertical_bias="0.5" />
+        <TextView
+            android:id="@+id/user_name_person_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/activity_person_default_username"
+            android:textColor="@color/text_color"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/avatar_person_imageView"
+            app:layout_constraintTop_toTopOf="@id/avatar_person_imageView" />
+
+        <TextView
+            android:id="@+id/sign_out_state_person_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/activity_person_sign_out"
+            android:textColor="@color/text_color"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
+            app:layout_constraintStart_toEndOf="@id/avatar_person_imageView"
+            app:layout_constraintTop_toTopOf="@id/avatar_person_imageView"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/sign_in_person_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_sign_in_tv"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="5dp"
+            android:text="@string/activity_person_sign_in"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/avatar_person_imageView"
+            app:layout_constraintVertical_bias="0.5" />
 
 
-    <TextView
-        android:id="@+id/signature_person_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/activity_person_default_signature"
-        android:textColor="@color/text_color"
-        android:textSize="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
-        app:layout_constraintStart_toEndOf="@id/avatar_person_imageView" />
+        <TextView
+            android:id="@+id/signature_person_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/activity_person_default_signature"
+            android:textColor="@color/text_color"
+            android:textSize="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/avatar_person_imageView"
+            app:layout_constraintStart_toEndOf="@id/avatar_person_imageView" />
+
+        <View
+            android:id="@+id/separator_six_person_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_separator_view"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <View
         android:id="@+id/separator_one_person_view"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/bg_separator_view"
-        app:layout_constraintTop_toBottomOf="@id/avatar_person_imageView" />
+        app:layout_constraintTop_toBottomOf="@id/user_msg_person_constraintLayout" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/like_person_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/separator_one_person_view">
+
+        <View
+            android:id="@+id/separator_five_person_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_separator_view"
+            app:layout_constraintTop_toTopOf="@id/like_person_constraintLayout" />
 
         <ImageView
             android:id="@+id/like_person_imageView"
@@ -115,10 +137,12 @@
 
         <View
             android:id="@+id/separator_two_person_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="1dp"
+            android:layout_marginStart="78dp"
             android:background="@color/bg_separator_view"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -126,7 +150,8 @@
         android:id="@+id/post_person_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/like_person_constraintLayout">
 
         <ImageView
@@ -155,10 +180,12 @@
 
         <View
             android:id="@+id/separator_three_person_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="1dp"
+            android:layout_marginStart="78dp"
             android:background="@color/bg_separator_view"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -166,7 +193,8 @@
         android:id="@+id/settings_person_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/post_person_constraintLayout">
 
         <ImageView
