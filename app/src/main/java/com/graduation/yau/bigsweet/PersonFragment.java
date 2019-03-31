@@ -53,6 +53,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
             mSignInTextView.setVisibility(View.VISIBLE);
             mUserNameTextView.setVisibility(View.GONE);
             mSignatureTextView.setVisibility(View.GONE);
+            mSignInTextView.setOnClickListener(this);
         }
     }
 
@@ -68,6 +69,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.sign_in_person_textView:
+                Intent mIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(mIntent);
                 break;
             default:
                 break;

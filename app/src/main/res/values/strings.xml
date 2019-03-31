@@ -27,4 +27,17 @@
     <string name="activity_settings_feedback">意见反馈</string>
     <string name="activity_settings_sign_out">退出</string>
 
+    <string name="activity_login_title">登录</string>
+    <string name="activity_login_number">手机号或邮箱</string>
+    <string name="activity_login_password">密码</string>
+    <string name="activity_login_sign_in">立即登陆</string>
+    <string name="activity_login_forget">忘记密码</string>
+    <string name="activity_login_register">注册新账号</string>
+
+    <string name="activity_register_title">注册</string>
+    <string name="activity_register_number">手机号</string>
+    <string name="activity_register_password">密码</string>
+    <string name="activity_register_sign_in">立即注册</string>
+    <string name="activity_register_prompt">密码不少于6位</string>
+
 </resources>

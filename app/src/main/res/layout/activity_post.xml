@@ -54,7 +54,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/location_post_constraintLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="?android:attr/selectableItemBackground"
@@ -106,7 +106,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/public_post_constraintLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@id/topic_post_constraintLayout"
@@ -116,7 +116,9 @@
             android:id="@+id/separator_two_post_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginStart="24dp"
             android:background="@color/bg_separator_view"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -149,7 +151,7 @@
             android:layout_marginEnd="24dp"
             android:src="@drawable/ic_go_right"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5" />
 
@@ -157,7 +159,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/topic_post_constraintLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@id/separator_four_post_view"
@@ -167,7 +169,9 @@
             android:id="@+id/separator_three_post_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginStart="24dp"
             android:background="@color/bg_separator_view"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -200,7 +204,7 @@
             android:layout_marginEnd="24dp"
             android:src="@drawable/ic_go_right"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5" />
 
