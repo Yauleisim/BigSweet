@@ -10,6 +10,8 @@
     <string name="activity_person_record">发帖记录</string>
     <string name="activity_person_default_username">未命名</string>
     <string name="activity_person_default_signature">该用户很懒，啥也没留下。</string>
+    <string name="activity_person_sign_out">登录体验更多功能</string>
+    <string name="activity_person_sign_in">点击登录</string>
 
     <string name="activity_post_send">发表</string>
     <string name="activity_post_location">所在位置</string>
