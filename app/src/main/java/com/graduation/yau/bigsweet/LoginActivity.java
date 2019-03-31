@@ -26,6 +26,7 @@ public class LoginActivity extends BaseActivty {
     @Override
     protected void initEvent() {
         findViewById(R.id.register_login_textView).setOnClickListener(this);
+        findViewById(R.id.forget_login_textView).setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +35,10 @@ public class LoginActivity extends BaseActivty {
             case R.id.register_login_textView:
                 Intent mIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(mIntent);
+                break;
+            case R.id.forget_login_textView:
+                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

@@ -40,4 +40,8 @@
     <string name="activity_register_sign_in">立即注册</string>
     <string name="activity_register_prompt">密码不少于6位</string>
 
+    <string name="activity_forget_title">重置密码</string>
+    <string name="activity_forget_number">手机号/邮箱</string>
+    <string name="activity_forget_reset">重置密码</string>
+
 </resources>
