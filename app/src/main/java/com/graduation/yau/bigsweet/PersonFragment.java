@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.graduation.yau.bigsweet.login.LoginActivity;
+
 public class PersonFragment extends Fragment implements View.OnClickListener {
 
     private TextView mUserNameTextView, mSignatureTextView, mSignOutStateTextView, mSignInTextView;

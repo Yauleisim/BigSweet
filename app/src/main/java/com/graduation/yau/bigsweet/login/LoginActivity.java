@@ -1,9 +1,10 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.login;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 
 /**

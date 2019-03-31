@@ -20,9 +20,9 @@
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".ForgetPasswordActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.RegisterActivity" />
+        <activity android:name=".login.ForgetPasswordActivity" />
     </application>
 
 </manifest>
