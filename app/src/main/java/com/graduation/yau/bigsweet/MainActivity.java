@@ -3,13 +3,13 @@ package com.graduation.yau.bigsweet;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.graduation.yau.bigsweet.base.BaseActivty;
+import com.graduation.yau.bigsweet.base.BaseActivity;
 
-public class MainActivity extends BaseActivty {
+public class MainActivity extends AppCompatActivity {
 
     protected ViewPager mShiftViewPager;
     private ShiftViewPagerAdapter mShiftViewPagerAdapter;
@@ -19,20 +19,16 @@ public class MainActivity extends BaseActivty {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    protected void loadLayout() {
         setContentView(R.layout.activity_main);
+        initView();
+        initEvent();
     }
 
-    @Override
     protected void initView() {
         mShiftViewPager = findViewById(R.id.shift_main_viewPager);
         mBottomNavigationView = findViewById(R.id.tab_main_bottomNavigationView);
     }
 
-    @Override
     protected void initEvent() {
         mShiftViewPagerAdapter = new ShiftViewPagerAdapter(getSupportFragmentManager());
         mShiftViewPagerAdapter.addFragment(new HomeFragment());

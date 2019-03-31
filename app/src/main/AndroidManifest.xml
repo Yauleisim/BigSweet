@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".base.BaseActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".LoginActivity" />

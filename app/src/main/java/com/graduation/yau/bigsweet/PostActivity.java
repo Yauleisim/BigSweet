@@ -1,30 +1,26 @@
 package com.graduation.yau.bigsweet;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
-import com.graduation.yau.bigsweet.base.BaseActivty;
+import com.graduation.yau.bigsweet.base.BaseActivity;
 
 /**
  * Created by YAULEISIM on 2019/3/24.
  */
 
-public class PostActivity extends BaseActivty {
+public class PostActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    protected void loadLayout() {
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_post);
+        loadContentLayout(R.layout.activity_post);
+        hideTitle();
     }
 
     @Override
     protected void initEvent() {
+        super.initEvent();
         findViewById(R.id.back_post_imageView).setOnClickListener(this);
         findViewById(R.id.public_post_constraintLayout).setOnClickListener(this);
         findViewById(R.id.topic_post_constraintLayout).setOnClickListener(this);
@@ -34,6 +30,7 @@ public class PostActivity extends BaseActivty {
 
     @Override
     public void onClick(View v) {
+        super.onClick(v);
         switch (v.getId()) {
             case R.id.back_post_imageView:
                 finish();
