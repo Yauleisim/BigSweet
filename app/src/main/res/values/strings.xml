@@ -46,4 +46,11 @@
 
     <string name="activity_home_search">请输入您想要搜索的内容</string>
 
+    <string name="activity_account_security_title">帐号与安全</string>
+    <string name="activity_account_security_phone">手机号</string>
+    <string name="activity_account_security_password">登录密码</string>
+    <string name="activity_account_security_email">邮箱账号</string>
+    <string name="activity_account_security_no">未设置</string>
+
+
 </resources>

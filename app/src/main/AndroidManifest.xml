@@ -23,6 +23,7 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.ForgetPasswordActivity" />
+        <activity android:name=".AccountSecurityActivity" />
     </application>
 
 </manifest>
