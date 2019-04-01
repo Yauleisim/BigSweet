@@ -44,6 +44,8 @@ public class SettingsActivity extends BaseActivity {
             case R.id.about_settings_constraintLayout:
                 break;
             case R.id.feedback_settings_constraintLayout:
+                Intent intent = new Intent(SettingsActivity.this, FeedbackActivity.class);
+                startActivity(intent);
                 break;
             case R.id.sign_out_settings_constraintLayout:
                 break;

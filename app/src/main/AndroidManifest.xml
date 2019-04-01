@@ -24,6 +24,7 @@
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.ForgetPasswordActivity" />
         <activity android:name=".AccountSecurityActivity" />
+        <activity android:name=".FeedbackActivity" />
     </application>
 
 </manifest>

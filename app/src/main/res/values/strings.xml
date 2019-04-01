@@ -52,5 +52,11 @@
     <string name="activity_account_security_email">邮箱账号</string>
     <string name="activity_account_security_no">未设置</string>
 
+    <string name="activity_feedback_title">意见反馈</string>
+    <string name="activity_feedback_prompt">问题/建议</string>
+    <string name="activity_feedback_content">请在此输入您的意见反馈</string>
+    <string name="activity_feedback_email">请输入您的邮箱方便工作人员后续联系</string>
+    <string name="activity_feedback_submit">提交</string>
+
 
 </resources>
