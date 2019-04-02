@@ -1,6 +1,5 @@
 package com.graduation.yau.bigsweet;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -32,8 +33,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.post_home_floatingActionButton:
-                Intent intent = new Intent(getActivity(), PostActivity.class);
-                startActivity(intent);
+                StartActivityUtil.go(getActivity(), PostActivity.class);
                 break;
             default:
                 break;

@@ -19,12 +19,13 @@
 
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".PostActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".settings.SettingsActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.ForgetPasswordActivity" />
-        <activity android:name=".AccountSecurityActivity" />
-        <activity android:name=".FeedbackActivity" />
+        <activity android:name=".settings.AccountSecurityActivity" />
+        <activity android:name=".settings.FeedbackActivity" />
+        <activity android:name=".settings.UserMessageActivity" />
     </application>
 
 </manifest>

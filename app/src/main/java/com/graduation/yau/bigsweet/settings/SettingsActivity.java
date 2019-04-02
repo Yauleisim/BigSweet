@@ -1,9 +1,10 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.settings;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 
 /**
@@ -34,18 +35,17 @@ public class SettingsActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.user_message_settings_constraintLayout:
+                StartActivityUtil.go(SettingsActivity.this, UserMessageActivity.class);
                 break;
             case R.id.accountAndSecurity_settings_constraintLayout:
-                Intent mIntent = new Intent(SettingsActivity.this, AccountSecurityActivity.class);
-                startActivity(mIntent);
+                StartActivityUtil.go(SettingsActivity.this, AccountSecurityActivity.class);
                 break;
             case R.id.certification_settings_constraintLayout:
                 break;
             case R.id.about_settings_constraintLayout:
                 break;
             case R.id.feedback_settings_constraintLayout:
-                Intent intent = new Intent(SettingsActivity.this, FeedbackActivity.class);
-                startActivity(intent);
+                StartActivityUtil.go(SettingsActivity.this, FeedbackActivity.class);
                 break;
             case R.id.sign_out_settings_constraintLayout:
                 break;

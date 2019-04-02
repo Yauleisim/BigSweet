@@ -1,10 +1,10 @@
 package com.graduation.yau.bigsweet.login;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 
 /**
@@ -32,12 +32,10 @@ public class LoginActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.register_login_textView:
-                Intent mIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(mIntent);
+                StartActivityUtil.go(LoginActivity.this, RegisterActivity.class);
                 break;
             case R.id.forget_login_textView:
-                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
-                startActivity(intent);
+                StartActivityUtil.go(LoginActivity.this, ForgetPasswordActivity.class);
                 break;
             default:
                 break;

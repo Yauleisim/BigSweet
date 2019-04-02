@@ -1,6 +1,5 @@
 package com.graduation.yau.bigsweet;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.graduation.yau.bigsweet.login.LoginActivity;
+import com.graduation.yau.bigsweet.settings.SettingsActivity;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 public class PersonFragment extends Fragment implements View.OnClickListener {
 
@@ -67,12 +68,10 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
             case R.id.post_person_constraintLayout:
                 break;
             case R.id.settings_person_constraintLayout:
-                Intent intent = new Intent(getActivity(), SettingsActivity.class);
-                startActivity(intent);
+                StartActivityUtil.go(getActivity(), SettingsActivity.class);
                 break;
             case R.id.sign_in_person_textView:
-                Intent mIntent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(mIntent);
+                StartActivityUtil.go(getActivity(), LoginActivity.class);
                 break;
             default:
                 break;

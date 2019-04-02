@@ -58,5 +58,14 @@
     <string name="activity_feedback_email">请输入您的邮箱方便工作人员后续联系</string>
     <string name="activity_feedback_submit">提交</string>
 
+    <string name="activity_user_msg_title">个人资料</string>
+    <string name="activity_user_msg_name">昵称</string>
+    <string name="activity_user_msg_gender">性别</string>
+    <string name="activity_user_msg_address">常住地</string>
+    <string name="activity_user_msg_signature">个性签名</string>
+    <string name="activity_user_msg_no">未填写</string>
+    <string name="activity_user_msg_avatar">修改头像</string>
+    <string name="activity_user_msg_identity">身份认证</string>
+    <string name="activity_user_msg_apply">点击申请</string>
 
 </resources>
