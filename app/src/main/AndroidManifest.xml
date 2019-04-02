@@ -26,6 +26,7 @@
         <activity android:name=".settings.AccountSecurityActivity" />
         <activity android:name=".settings.FeedbackActivity" />
         <activity android:name=".settings.UserMessageActivity" />
+        <activity android:name=".settings.AboutActivity" />
     </application>
 
 </manifest>

@@ -43,6 +43,7 @@ public class SettingsActivity extends BaseActivity {
             case R.id.certification_settings_constraintLayout:
                 break;
             case R.id.about_settings_constraintLayout:
+                StartActivityUtil.go(SettingsActivity.this, AboutActivity.class);
                 break;
             case R.id.feedback_settings_constraintLayout:
                 StartActivityUtil.go(SettingsActivity.this, FeedbackActivity.class);
