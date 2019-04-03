@@ -73,4 +73,9 @@
     <string name="activity_about_check">检查新版本</string>
     <string name="activity_about_version">Version 1.0.1</string>
 
+    <string name="activity_post_detail_title">正文</string>
+    <string name="activity_post_detail_comment">评论</string>
+    <string name="activity_post_detail_like">收藏</string>
+    <string name="activity_post_detail_share">分享</string>
+
 </resources>

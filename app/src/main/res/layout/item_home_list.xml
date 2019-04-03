@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/head_item_home_list_constraintLayout"
@@ -11,11 +12,12 @@
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.v4.widget.CircleImageView
+        <ImageView
             android:id="@+id/avatar_item_home_list_circleImageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="12dp"
+            android:src="@mipmap/ic_person_avatar"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -23,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:text="Keizaang"
             android:textColor="@color/text_color"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +41,7 @@
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="24dp"
+        android:text="三里清风三里路，步步清风再无你。"
         android:textColor="@color/text_color"
         android:textSize="14dp"
         app:layout_constraintTop_toBottomOf="@id/head_item_home_list_constraintLayout" />
@@ -55,19 +59,22 @@
             android:id="@+id/one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@mipmap/ic_person_avatar" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@mipmap/ic_person_avatar" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@mipmap/ic_person_avatar" />
 
     </LinearLayout>
 
@@ -97,6 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:text="蛋糕"
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -133,6 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:text="0"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/like_item_home_list_imageView"
@@ -157,6 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:text="0"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/comment_item_home_list_imageView"
@@ -181,10 +191,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:text="0"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/share_item_home_list_imageView"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
