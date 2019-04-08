@@ -9,4 +9,6 @@
     <color name="text_color">#171717</color>
     <color name="bg_separator_view">#EDEDED</color>
     <color name="bg_foot_post_detail">#FAFAFA</color>
+
+    <color name="bg_bar_color">#FDFDFD</color>
 </resources>
