@@ -44,8 +44,17 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         if (null != mContentLayout) {
             mContentLayout.addView(mContentView);
         }
+        setStatusBar();
         initView();
         initEvent();
+    }
+
+    private void setStatusBar() {
+        if (getWindow() == null) {
+            return;
+        }
+        getWindow().setStatusBarColor(getResources().getColor(R.color.white));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     protected void initView() {

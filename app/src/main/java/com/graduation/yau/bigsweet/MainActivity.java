@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         if (getWindow() == null) {
             return;
         }
-        getWindow().setStatusBarColor(getResources().getColor(R.color.bg_bar_color));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.white));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
