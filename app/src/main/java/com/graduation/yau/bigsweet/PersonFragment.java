@@ -7,15 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.graduation.yau.bigsweet.login.LoginActivity;
 import com.graduation.yau.bigsweet.settings.SettingsActivity;
+import com.graduation.yau.bigsweet.settings.UserMessageActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 public class PersonFragment extends Fragment implements View.OnClickListener {
-
-    private TextView mUserNameTextView, mSignatureTextView, mSignOutStateTextView, mSignInTextView;
 
     @Nullable
     @Override
@@ -32,46 +29,25 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View root) {
-        mUserNameTextView = root.findViewById(R.id.user_name_person_textView);
-        mSignatureTextView = root.findViewById(R.id.signature_person_textView);
-        mSignOutStateTextView = root.findViewById(R.id.sign_out_state_person_textView);
-        mSignInTextView = root.findViewById(R.id.sign_in_person_textView);
     }
 
     private void initEvent(View root) {
-        root.findViewById(R.id.like_person_constraintLayout).setOnClickListener(this);
-        root.findViewById(R.id.post_person_constraintLayout).setOnClickListener(this);
-        root.findViewById(R.id.settings_person_constraintLayout).setOnClickListener(this);
-
-        // 检查登录状态
-        if (false) {
-            // 登录
-            mUserNameTextView.setVisibility(View.VISIBLE);
-            mSignatureTextView.setVisibility(View.VISIBLE);
-            mSignOutStateTextView.setVisibility(View.GONE);
-            mSignInTextView.setVisibility(View.GONE);
-        } else {
-            // 未登录
-            mSignOutStateTextView.setVisibility(View.VISIBLE);
-            mSignInTextView.setVisibility(View.VISIBLE);
-            mUserNameTextView.setVisibility(View.GONE);
-            mSignatureTextView.setVisibility(View.GONE);
-            mSignInTextView.setOnClickListener(this);
-        }
+        root.findViewById(R.id.settings_person_imageView).setOnClickListener(this);
+        root.findViewById(R.id.post_person_imageView).setOnClickListener(this);
+        root.findViewById(R.id.edit_person_textView).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.like_person_constraintLayout:
-                break;
-            case R.id.post_person_constraintLayout:
-                break;
-            case R.id.settings_person_constraintLayout:
+            case R.id.settings_person_imageView:
                 StartActivityUtil.go(getActivity(), SettingsActivity.class);
                 break;
-            case R.id.sign_in_person_textView:
-                StartActivityUtil.go(getActivity(), LoginActivity.class);
+            case R.id.post_person_imageView:
+                StartActivityUtil.go(getActivity(), PostActivity.class);
+                break;
+            case R.id.edit_person_textView:
+                StartActivityUtil.go(getActivity(), UserMessageActivity.class);
                 break;
             default:
                 break;

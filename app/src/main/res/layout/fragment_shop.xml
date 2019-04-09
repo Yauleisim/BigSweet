@@ -9,7 +9,6 @@
         android:id="@+id/head_shop_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FDFDFD"
         android:paddingTop="10dp"
         app:layout_constraintTop_toTopOf="parent">
 
