@@ -35,7 +35,7 @@
             app:layout_constraintStart_toEndOf="@id/post_person_imageView">
 
             <ImageView
-                android:id="@+id/search_shop_imageView"
+                android:id="@+id/search_person_imageView"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_shop_search" />
@@ -48,7 +48,7 @@
                 android:textColor="#949492"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/search_shop_imageView"
+                app:layout_constraintStart_toEndOf="@id/search_person_imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
