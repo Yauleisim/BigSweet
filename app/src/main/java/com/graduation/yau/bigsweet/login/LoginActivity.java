@@ -13,6 +13,8 @@ import com.graduation.yau.bigsweet.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity {
 
+    public static final String KEY_LOGIN_STATE = "LoginState";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
