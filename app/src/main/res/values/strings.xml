@@ -33,6 +33,9 @@
     <string name="activity_login_sign_in">立即登陆</string>
     <string name="activity_login_forget">忘记密码</string>
     <string name="activity_login_register">注册新账号</string>
+    <string name="activity_login_no_number">您忘了填写账号哦</string>
+    <string name="activity_login_no_password">您忘了填写密码哦</string>
+    <string name="activity_login_fail">登录失败，请检查账号或密码是否有误</string>
 
     <string name="activity_register_title">注册</string>
     <string name="activity_register_number">手机号</string>

@@ -5,10 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.graduation.yau.bigsweet.login.LoginActivity;
-import com.graduation.yau.bigsweet.util.SharedPreferencesUtil;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 
 /**
  * Created by YAULEISIM on 2019/4/11.
@@ -42,8 +42,7 @@ public class SplashActivity extends AppCompatActivity {
                     }
                 }
                 // 进入主页面
-                if (SharedPreferencesUtil.containsKey(getApplicationContext(), LoginActivity.KEY_LOGIN_STATE)
-                        && SharedPreferencesUtil.get(getApplicationContext(), LoginActivity.KEY_LOGIN_STATE, false).equals(true)) {
+                if (BmobUser.isLogin()) {
                     StartActivityUtil.go(SplashActivity.this, MainActivity.class);
                 } else {
                     StartActivityUtil.go(SplashActivity.this, LoginActivity.class);
