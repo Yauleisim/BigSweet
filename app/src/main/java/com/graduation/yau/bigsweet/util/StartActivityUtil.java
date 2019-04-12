@@ -17,4 +17,14 @@ public class StartActivityUtil {
             e.printStackTrace();
         }
     }
+
+    public static void goWithFlag(Context fromActivity, Class toActivity, int flag) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.setFlags(flag);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
