@@ -28,7 +28,7 @@
     <string name="activity_settings_sign_out">退出</string>
 
     <string name="activity_login_title">登录</string>
-    <string name="activity_login_number">手机号或邮箱</string>
+    <string name="activity_login_number">昵称/手机号/邮箱</string>
     <string name="activity_login_password">密码</string>
     <string name="activity_login_sign_in">立即登陆</string>
     <string name="activity_login_forget">忘记密码</string>
@@ -47,6 +47,20 @@
     <string name="activity_register_no_password">密码不可为空呀</string>
     <string name="activity_register_success">注册成功，请登录</string>
     <string name="activity_register_fail">注册失败，请稍后重试</string>
+    <string name="activity_register_with_phone">手机短信一键注册</string>
+
+    <string name="activity_register_with_phone_title">手机短信注册</string>
+    <string name="activity_register_with_phone_phone">手机号码</string>
+    <string name="activity_register_with_phone_code">短信验证码</string>
+    <string name="activity_register_with_phone_get_code">获取验证码</string>
+    <string name="activity_register_with_phone_send_success">验证码已发送，请注意查收</string>
+    <string name="activity_register_with_phone_send_fail">验证码发送失败，请检查手机号码是否有误</string>
+    <string name="activity_register_with_phone_no_phone">手机号码不可为空</string>
+    <string name="activity_register_with_phone_no_code">请填写短信验证码</string>
+    <string name="activity_register_with_phone_sign_in">注册并登录</string>
+    <string name="activity_register_with_phone_success">一键注册成功，精彩即将呈现</string>
+    <string name="activity_register_with_phone_fail">注册失败，请检查手机号码或短信验证码是否有误</string>
+    <string name="activity_register_with_phone_exist_phone">该手机号已经被注册</string>
 
     <string name="activity_forget_title">重置密码</string>
     <string name="activity_forget_number">手机号/邮箱</string>

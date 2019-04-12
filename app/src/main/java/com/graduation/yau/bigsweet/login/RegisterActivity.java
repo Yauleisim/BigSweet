@@ -41,6 +41,7 @@ public class RegisterActivity extends BaseActivity {
     protected void initEvent() {
         super.initEvent();
         findViewById(R.id.sign_up_register_button).setOnClickListener(this);
+        findViewById(R.id.sign_up_with_phone_register_textView).setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +50,12 @@ public class RegisterActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.sign_up_register_button:
                 doRegister();
+                break;
+            case R.id.sign_up_with_phone_register_textView:
+                StartActivityUtil.go(RegisterActivity.this, RegisterWithPhoneActivity.class);
+                finish();
+                break;
+            default:
                 break;
         }
     }

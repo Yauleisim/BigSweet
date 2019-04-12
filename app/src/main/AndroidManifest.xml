@@ -36,6 +36,7 @@
         <activity android:name=".settings.FeedbackActivity" />
         <activity android:name=".settings.UserMessageActivity" />
         <activity android:name=".settings.AboutActivity" />
+        <activity android:name=".login.RegisterWithPhoneActivity" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
