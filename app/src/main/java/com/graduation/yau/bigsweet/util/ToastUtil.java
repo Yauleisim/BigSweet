@@ -18,7 +18,7 @@ import com.graduation.yau.bigsweet.R;
 
 public class ToastUtil {
 
-    public static void show(Context context, String content, int duration, boolean yes) {
+    public static void show(Context context, int content, int duration, boolean yes) {
         //自定义Toast控件
         View toastView = LayoutInflater.from(context).inflate(R.layout.toast_common, null);
         TextView textView = (TextView) toastView.findViewById(R.id.text_toast_common_textView);

@@ -70,11 +70,11 @@ public class LoginActivity extends BaseActivity {
         String number = mNumberEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
         if (TextUtil.isEmpty(number)) {
-            ToastUtil.show(this, "账号不得为空", Toast.LENGTH_SHORT, false);
+            ToastUtil.show(this, R.string.activity_login_no_number, Toast.LENGTH_SHORT, false);
             return;
         }
         if (TextUtil.isEmpty(password)) {
-            ToastUtil.show(this, "密码不得为空", Toast.LENGTH_SHORT, false);
+            ToastUtil.show(this, R.string.activity_login_no_password, Toast.LENGTH_SHORT, false);
             return;
         }
         BmobUser.loginByAccount(number, password, new LogInListener<User>() {
@@ -82,11 +82,12 @@ public class LoginActivity extends BaseActivity {
             public void done(User user, BmobException e) {
                 if (e == null) {
                     // 登录成功
-                    ToastUtil.show(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT, true);
+                    ToastUtil.show(LoginActivity.this, R.string.activity_login_success, Toast.LENGTH_SHORT, true);
                     StartActivityUtil.go(LoginActivity.this, MainActivity.class);
+                    finish();
                 } else {
                     // 登录失败
-                    ToastUtil.show(LoginActivity.this, "登陆失败", Toast.LENGTH_SHORT, false);
+                    ToastUtil.show(LoginActivity.this, R.string.activity_login_fail, Toast.LENGTH_SHORT, false);
                     e.printStackTrace();
                 }
             }

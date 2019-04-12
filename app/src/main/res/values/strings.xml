@@ -36,12 +36,17 @@
     <string name="activity_login_no_number">您忘了填写账号哦</string>
     <string name="activity_login_no_password">您忘了填写密码哦</string>
     <string name="activity_login_fail">登录失败，请检查账号或密码是否有误</string>
+    <string name="activity_login_success">登录成功，精彩即将呈现</string>
 
     <string name="activity_register_title">注册</string>
-    <string name="activity_register_number">手机号</string>
+    <string name="activity_register_name">昵称</string>
     <string name="activity_register_password">密码</string>
     <string name="activity_register_sign_in">立即注册</string>
     <string name="activity_register_prompt">密码不少于6位</string>
+    <string name="activity_register_no_name">昵称不可为空呀</string>
+    <string name="activity_register_no_password">密码不可为空呀</string>
+    <string name="activity_register_success">注册成功，请登录</string>
+    <string name="activity_register_fail">注册失败，请稍后重试</string>
 
     <string name="activity_forget_title">重置密码</string>
     <string name="activity_forget_number">手机号/邮箱</string>
