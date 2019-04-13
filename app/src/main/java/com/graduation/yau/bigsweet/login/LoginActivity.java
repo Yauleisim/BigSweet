@@ -1,7 +1,6 @@
 package com.graduation.yau.bigsweet.login;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,6 +45,7 @@ public class LoginActivity extends BaseActivity {
         findViewById(R.id.register_login_textView).setOnClickListener(this);
         findViewById(R.id.forget_login_textView).setOnClickListener(this);
         findViewById(R.id.sign_in_login_button).setOnClickListener(this);
+        findViewById(R.id.code_login_textView).setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +60,10 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.sign_in_login_button:
                 doLogin();
+                break;
+            case R.id.code_login_textView:
+                StartActivityUtil.go(LoginActivity.this, LoginWithPhoneActivity.class);
+                finish();
                 break;
             default:
                 break;
