@@ -38,6 +38,7 @@
         <activity android:name=".settings.AboutActivity" />
         <activity android:name=".login.RegisterWithPhoneActivity" />
         <activity android:name=".login.LoginWithPhoneActivity" />
+        <activity android:name=".settings.BindPhoneActivity" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"

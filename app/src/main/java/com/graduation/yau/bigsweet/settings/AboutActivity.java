@@ -14,7 +14,7 @@ public class AboutActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        loadContentLayout(R.layout.activty_about);
+        loadContentLayout(R.layout.activity_about);
         setTitleName(R.string.activity_about_title);
     }
 }

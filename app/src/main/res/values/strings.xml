@@ -85,6 +85,13 @@
     <string name="activity_account_security_email">邮箱账号</string>
     <string name="activity_account_security_no">未设置</string>
 
+    <string name="activity_bind_phone_title">绑定手机</string>
+    <string name="activity_bind_phone_bind">立即绑定</string>
+    <string name="activity_bind_phone_exist_phone">该手机号已经被绑定</string>
+    <string name="activity_bind_phone_code_error">验证码错误</string>
+    <string name="activity_bind_phone_success">绑定手机号码成功</string>
+    <string name="activity_bind_phone_fail">绑定手机号码失败</string>
+
     <string name="activity_feedback_title">意见反馈</string>
     <string name="activity_feedback_prompt">问题/建议</string>
     <string name="activity_feedback_content">请在此输入您的意见反馈</string>

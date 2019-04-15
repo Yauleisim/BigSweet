@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.User;
 import com.graduation.yau.bigsweet.base.BaseActivity;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.graduation.yau.bigsweet.util.TextUtil;
 
 import cn.bmob.v3.BmobUser;
@@ -58,11 +59,18 @@ public class AccountSecurityActivity extends BaseActivity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        // 更新数据
+    }
+
+    @Override
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.phone_account_security_constraintLayout:
-                // 绑定手机
+                // 绑定手机,解绑？
+                StartActivityUtil.go(AccountSecurityActivity.this, BindPhoneActivity.class);
                 break;
             case R.id.email_account_security_constraintLayout:
                 // 绑定邮箱
