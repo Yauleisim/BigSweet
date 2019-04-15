@@ -81,7 +81,7 @@
         android:clickable="true"
         android:focusable="true"
         android:padding="5dp"
-        android:text="短信验证码登录"
+        android:text="@string/activity_login_by_phone"
         android:textColor="@color/colorPrimary"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"

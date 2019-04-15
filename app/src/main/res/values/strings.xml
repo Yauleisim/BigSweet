@@ -28,7 +28,7 @@
     <string name="activity_settings_sign_out">退出</string>
 
     <string name="activity_login_title">登录</string>
-    <string name="activity_login_number">昵称/手机号/邮箱</string>
+    <string name="activity_login_number">昵称</string>
     <string name="activity_login_password">密码</string>
     <string name="activity_login_sign_in">立即登陆</string>
     <string name="activity_login_forget">忘记密码</string>
@@ -37,6 +37,7 @@
     <string name="activity_login_no_password">您忘了填写密码哦</string>
     <string name="activity_login_fail">登录失败，请检查账号或密码是否有误</string>
     <string name="activity_login_success">登录成功，精彩即将呈现</string>
+    <string name="activity_login_by_phone">短信验证码登录</string>
 
     <string name="activity_register_title">注册</string>
     <string name="activity_register_name">昵称</string>
@@ -80,7 +81,7 @@
 
     <string name="activity_account_security_title">帐号与安全</string>
     <string name="activity_account_security_phone">手机号</string>
-    <string name="activity_account_security_password">登录密码</string>
+    <string name="activity_account_security_password">修改密码</string>
     <string name="activity_account_security_email">邮箱账号</string>
     <string name="activity_account_security_no">未设置</string>
 

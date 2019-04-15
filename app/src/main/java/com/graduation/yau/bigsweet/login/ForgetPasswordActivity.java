@@ -111,8 +111,7 @@ public class ForgetPasswordActivity extends BaseActivity {
     }
 
     private void resetPassword() {
-        String phone = mPhoneEditText.getText().toString();
-        if (TextUtil.isEmpty(phone)) {
+        if (mPhoneEditText.getText() == null) {
             ToastUtil.show(ForgetPasswordActivity.this, R.string.activity_register_with_phone_no_phone, Toast.LENGTH_SHORT, false);
             return;
         }

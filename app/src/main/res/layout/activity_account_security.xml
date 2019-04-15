@@ -37,13 +37,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/phone_account_security_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
-            android:text="@string/activity_account_security_no"
-            android:textColor="@color/text_color"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/go_to_set_phone_account_security_imageView"
@@ -94,13 +93,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/password_account_security_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
-            android:text="@string/activity_account_security_no"
-            android:textColor="@color/text_color"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/go_to_set_password_account_security_imageView"
@@ -158,13 +156,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/email_account_security_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
-            android:text="@string/activity_account_security_no"
-            android:textColor="@color/text_color"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/go_to_set_email_account_security_imageView"
