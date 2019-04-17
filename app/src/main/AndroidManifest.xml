@@ -40,6 +40,7 @@
         <activity android:name=".login.LoginWithPhoneActivity" />
         <activity android:name=".settings.BindPhoneActivity" />
         <activity android:name=".settings.BindEmailActivity" />
+        <activity android:name=".settings.ChangePasswordActivity" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"

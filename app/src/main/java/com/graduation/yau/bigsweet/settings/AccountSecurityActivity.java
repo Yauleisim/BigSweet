@@ -77,6 +77,7 @@ public class AccountSecurityActivity extends BaseActivity {
                 break;
             case R.id.password_account_security_constraintLayout:
                 // 修改密码
+                StartActivityUtil.go(AccountSecurityActivity.this, ChangePasswordActivity.class);
                 break;
             default:
                 break;
