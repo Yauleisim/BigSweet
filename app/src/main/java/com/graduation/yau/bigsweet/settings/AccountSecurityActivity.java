@@ -69,11 +69,12 @@ public class AccountSecurityActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.phone_account_security_constraintLayout:
-                // 绑定手机,解绑？
+                // 绑定手机
                 StartActivityUtil.go(AccountSecurityActivity.this, BindPhoneActivity.class);
                 break;
             case R.id.email_account_security_constraintLayout:
                 // 绑定邮箱
+                StartActivityUtil.go(AccountSecurityActivity.this, BindEmailActivity.class);
                 break;
             case R.id.password_account_security_constraintLayout:
                 // 修改密码

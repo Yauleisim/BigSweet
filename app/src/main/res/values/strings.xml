@@ -28,7 +28,7 @@
     <string name="activity_settings_sign_out">退出</string>
 
     <string name="activity_login_title">登录</string>
-    <string name="activity_login_number">昵称</string>
+    <string name="activity_login_number">昵称/邮箱</string>
     <string name="activity_login_password">密码</string>
     <string name="activity_login_sign_in">立即登陆</string>
     <string name="activity_login_forget">忘记密码</string>
@@ -91,6 +91,14 @@
     <string name="activity_bind_phone_code_error">验证码错误</string>
     <string name="activity_bind_phone_success">绑定手机号码成功</string>
     <string name="activity_bind_phone_fail">绑定手机号码失败</string>
+
+    <string name="activity_bind_email_title">绑定邮箱</string>
+    <string name="activity_bind_email_email">邮箱</string>
+    <string name="activity_bind_email_bind">立即绑定</string>
+    <string name="activity_bind_email_no_email">请填写您要进行绑定的邮箱</string>
+    <string name="activity_bind_email_exist_email">该邮箱已经被绑定</string>
+    <string name="activity_bind_email_success">验证邮箱已发送成功，请及时完成验证</string>
+    <string name="activity_bind_email_fail">验证邮箱发送失败，请稍后重试</string>
 
     <string name="activity_feedback_title">意见反馈</string>
     <string name="activity_feedback_prompt">问题/建议</string>

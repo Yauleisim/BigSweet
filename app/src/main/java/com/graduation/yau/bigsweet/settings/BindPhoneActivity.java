@@ -7,12 +7,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.graduation.yau.bigsweet.CountDownUtil;
+import com.graduation.yau.bigsweet.util.CountDownUtil;
 import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.User;
 import com.graduation.yau.bigsweet.base.BaseActivity;
-import com.graduation.yau.bigsweet.login.LoginWithPhoneActivity;
-import com.graduation.yau.bigsweet.login.RegisterWithPhoneActivity;
 import com.graduation.yau.bigsweet.util.TextUtil;
 import com.graduation.yau.bigsweet.util.ToastUtil;
 

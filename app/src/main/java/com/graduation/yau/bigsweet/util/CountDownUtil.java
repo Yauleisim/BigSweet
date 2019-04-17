@@ -1,7 +1,9 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.util;
 
 import android.os.CountDownTimer;
 import android.widget.TextView;
+
+import com.graduation.yau.bigsweet.R;
 
 /**
  * Created by YAULEISIM on 2019/4/12.
