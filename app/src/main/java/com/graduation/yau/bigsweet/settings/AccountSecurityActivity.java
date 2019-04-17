@@ -8,7 +8,6 @@ import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.User;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
-import com.graduation.yau.bigsweet.util.TextUtil;
 
 import cn.bmob.v3.BmobUser;
 
@@ -37,6 +36,14 @@ public class AccountSecurityActivity extends BaseActivity {
     @Override
     protected void initEvent() {
         super.initEvent();
+
+
+        findViewById(R.id.password_account_security_constraintLayout).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         User user = BmobUser.getCurrentUser(User.class);
 
         if (user.getMobilePhoneNumberVerified() == null || !user.getMobilePhoneNumberVerified()) {
@@ -54,14 +61,6 @@ public class AccountSecurityActivity extends BaseActivity {
         } else {
             mEmailTextView.setText(user.getEmail());
         }
-
-        findViewById(R.id.password_account_security_constraintLayout).setOnClickListener(this);
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        // 更新数据
     }
 
     @Override
