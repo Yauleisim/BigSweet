@@ -59,9 +59,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/avatar_user_message_constraintLayout">
 
         <TextView
@@ -76,23 +73,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
+            android:id="@+id/name_user_message_editText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="18dp"
             android:layout_marginStart="120dp"
-            android:text="@string/activity_person_default_username"
+            android:background="@null"
+            android:hint="@string/activity_person_default_username"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_go_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
@@ -109,9 +99,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/name_user_message_constraintLayout">
 
         <TextView
@@ -136,15 +123,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_go_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <View
             android:id="@+id/separator_four_user_message_view"
             android:layout_width="match_parent"
@@ -159,9 +137,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/gender_user_message_constraintLayout">
 
         <TextView
@@ -176,23 +151,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:text="@string/activity_person_default_signature"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/signature_user_message_editText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_go_right"
+            android:layout_marginStart="120dp"
+            android:background="@null"
+            android:ellipsize="end"
+            android:hint="@string/activity_person_default_signature"
+            android:maxLines="1"
+            android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
@@ -209,9 +182,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/signature_user_message_constraintLayout">
 
         <TextView
@@ -226,23 +196,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
+            android:id="@+id/address_user_message_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
-            android:text="@string/activity_user_msg_no"
+            android:background="@null"
+            android:hint="@string/activity_user_msg_no"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_go_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
@@ -262,6 +225,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/address_user_message_constraintLayout">
 
         <TextView

@@ -12,4 +12,24 @@ public class TextUtil {
         }
         return false;
     }
+
+    public static boolean equals(String one, String two) {
+        if (isEmpty(one)) {
+            if (isEmpty(two)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (isEmpty(two)) {
+                return false;
+            } else {
+                if (one.equals(two)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
 }

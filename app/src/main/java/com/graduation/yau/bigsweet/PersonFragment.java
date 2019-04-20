@@ -9,19 +9,24 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.graduation.yau.bigsweet.settings.SettingsActivity;
 import com.graduation.yau.bigsweet.settings.UserMessageActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
+import com.graduation.yau.bigsweet.util.TextUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.BmobUser;
 
 public class PersonFragment extends Fragment implements View.OnClickListener {
 
     private ViewPager mPersonShiftViewPager;
     private PersonShiftViewPagerAdapter mPersonShiftViewPagerAdapter;
     private TabLayout mPersonTabLayout;
+    private TextView mNameTextView, mSignatureTextView, mFollowTextView, mFansTextView;
 
     @Nullable
     @Override
@@ -40,6 +45,10 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     private void initView(View root) {
         mPersonShiftViewPager = root.findViewById(R.id.note_like_person_viewPager);
         mPersonTabLayout = root.findViewById(R.id.note_like_person_tabLayout);
+        mNameTextView = root.findViewById(R.id.name_person_textView);
+        mSignatureTextView = root.findViewById(R.id.signature_person_textView);
+        mFollowTextView = root.findViewById(R.id.follow_count_person_textView);
+        mFansTextView = root.findViewById(R.id.fans_count_person_textView);
     }
 
     private void initEvent(View root) {
@@ -56,6 +65,20 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         mPersonShiftViewPager.setAdapter(mPersonShiftViewPagerAdapter);
 
         mPersonTabLayout.setupWithViewPager(mPersonShiftViewPager);
+
+        User currentUser = BmobUser.getCurrentUser(User.class);
+        if (currentUser == null) {
+            return;
+        }
+        mNameTextView.setText(currentUser.getUsername());
+        String signature = currentUser.getSignature();
+        if (TextUtil.isEmpty(signature)) {
+            mSignatureTextView.setText(R.string.activity_person_default_signature);
+        } else {
+            mSignatureTextView.setText(signature);
+        }
+        mFollowTextView.setText(String.valueOf(currentUser.getFollowCount()));
+        mFansTextView.setText(String.valueOf(currentUser.getFansCount()));
     }
 
     @Override

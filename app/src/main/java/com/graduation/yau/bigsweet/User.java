@@ -7,4 +7,64 @@ import cn.bmob.v3.BmobUser;
  */
 
 public class User extends BmobUser {
+
+    private String avatarUrl;
+
+    private String gender;
+
+    private String signature;
+
+    private String address;
+
+    private int followCount;
+
+    private int fansCount;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getFollowCount() {
+        return followCount;
+    }
+
+    public void setFollowCount(int followCount) {
+        this.followCount = followCount;
+    }
+
+    public int getFansCount() {
+        return fansCount;
+    }
+
+    public void setFansCount(int fansCount) {
+        this.fansCount = fansCount;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
 }

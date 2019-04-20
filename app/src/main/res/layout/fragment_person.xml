@@ -84,7 +84,6 @@
             android:id="@+id/name_person_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Keizzang"
             android:textColor="@color/text_color"
             android:textSize="26dp"
             android:textStyle="bold" />
@@ -95,7 +94,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
-            android:text="添加个人描述,可让大家更好地认识你哦~"
             android:textColor="@color/text_color"
             app:layout_constraintEnd_toStartOf="@id/avatar_person_constraintLayout"
             app:layout_constraintHorizontal_weight="1"
@@ -123,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="编辑个人资料"
+                android:text="@string/activity_person_edit"
                 android:textColor="#DA7E74"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +141,6 @@
                 android:id="@+id/follow_count_person_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
                 android:textColor="#2D2D2C"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -152,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="关注"
+                android:text="@string/activity_person_follow"
                 android:textColor="@color/text_color"
                 app:layout_constraintTop_toBottomOf="@id/follow_count_person_textView" />
 
@@ -169,7 +166,7 @@
                 android:id="@+id/fans_count_person_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+
                 android:textColor="#2D2D2C"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -178,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="粉丝"
+                android:text="@string/activity_person_fans"
                 android:textColor="@color/text_color"
                 app:layout_constraintTop_toBottomOf="@id/fans_count_person_textView" />
 

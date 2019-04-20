@@ -36,8 +36,6 @@ public class AccountSecurityActivity extends BaseActivity {
     @Override
     protected void initEvent() {
         super.initEvent();
-
-
         findViewById(R.id.password_account_security_constraintLayout).setOnClickListener(this);
     }
 
