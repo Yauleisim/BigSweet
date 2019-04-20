@@ -22,9 +22,9 @@ import cn.bmob.v3.listener.UpdateListener;
 
 public class UserMessageActivity extends BaseActivity {
 
-    private EditText mNameEditText, mSignatureEditText, mAddressEditText;
+    private EditText mNameEditText, mSignatureEditText;
     private RadioButton mMaleRadioButton, mFemaleRadioButton;
-    private String mName, mSignature, mAddress, mGender;
+    private String mName, mSignature, mGender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class UserMessageActivity extends BaseActivity {
         super.initView();
         mNameEditText = findViewById(R.id.name_user_message_editText);
         mSignatureEditText = findViewById(R.id.signature_user_message_editText);
-        mAddressEditText = findViewById(R.id.address_user_message_editText);
         mMaleRadioButton = findViewById(R.id.male_user_message_radioButton);
         mFemaleRadioButton = findViewById(R.id.female_user_message_radioButton);
     }
@@ -50,10 +49,6 @@ public class UserMessageActivity extends BaseActivity {
         mName = currentUser.getUsername();
         if (!TextUtil.isEmpty(mName)) {
             mNameEditText.setText(mName);
-        }
-        mAddress = currentUser.getAddress();
-        if (!TextUtil.isEmpty(mAddress)) {
-            mAddressEditText.setText(mAddress);
         }
         mSignature = currentUser.getSignature();
         if (!TextUtil.isEmpty(mSignature)) {
@@ -98,11 +93,7 @@ public class UserMessageActivity extends BaseActivity {
         } else {
             user.setUsername(null);
         }
-        String address = mAddressEditText.getText().toString();
-        if (!TextUtil.equals(address, mAddress)) {
-            user.setAddress(address);
-            flag = true;
-        }
+
         String signature = mSignatureEditText.getText().toString();
         if (!TextUtil.equals(signature, mSignature)) {
             user.setSignature(signature);

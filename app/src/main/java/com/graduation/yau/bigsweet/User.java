@@ -14,8 +14,6 @@ public class User extends BmobUser {
 
     private String signature;
 
-    private String address;
-
     private int followCount;
 
     private int fansCount;
@@ -34,14 +32,6 @@ public class User extends BmobUser {
 
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public int getFollowCount() {
