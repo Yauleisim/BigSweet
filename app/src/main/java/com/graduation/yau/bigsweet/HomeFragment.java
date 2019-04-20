@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void initEvent(View root) {
         root.findViewById(R.id.post_home_imageView).setOnClickListener(this);
+        root.findViewById(R.id.me_home_imageView).setOnClickListener(this);
 
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new FollowFragment());
@@ -59,8 +60,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.post_home_imageView:
                 StartActivityUtil.go(getActivity(), PostActivity.class);
                 break;
+            case R.id.me_home_imageView:
+                if (getActivity() instanceof goToPersonFragment) {
+                    ((goToPersonFragment) getActivity()).go();
+                }
+                break;
             default:
                 break;
         }
+    }
+
+    public interface goToPersonFragment {
+        void go();
     }
 }

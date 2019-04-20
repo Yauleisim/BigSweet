@@ -77,9 +77,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new PostFragment());
         fragments.add(new CollectionFragment());
-        fragments.add(new PraiseFragment());
 
-        mPersonShiftViewPagerAdapter = new PersonShiftViewPagerAdapter(getChildFragmentManager(), fragments, new String[]{"帖子", "收藏", "赞过"});
+        mPersonShiftViewPagerAdapter = new PersonShiftViewPagerAdapter(getChildFragmentManager(), fragments, new String[]{"帖子", "收藏"});
         mPersonShiftViewPager.setAdapter(mPersonShiftViewPagerAdapter);
 
         mPersonTabLayout.setupWithViewPager(mPersonShiftViewPager);

@@ -9,11 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
-import com.graduation.yau.bigsweet.base.BaseActivity;
+public class MainActivity extends AppCompatActivity implements HomeFragment.goToPersonFragment {
 
-public class MainActivity extends AppCompatActivity {
-
-    protected ViewPager mShiftViewPager;
+    protected static ViewPager mShiftViewPager;
     private ShiftViewPagerAdapter mShiftViewPagerAdapter;
     protected BottomNavigationView mBottomNavigationView;
     protected MenuItem mTabMenuItem;
@@ -94,4 +92,9 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    @Override
+    public void go() {
+        mShiftViewPager.setCurrentItem(2);
+    }
 }
