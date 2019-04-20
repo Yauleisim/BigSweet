@@ -42,6 +42,24 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        User currentUser = BmobUser.getCurrentUser(User.class);
+        if (currentUser == null) {
+            return;
+        }
+        mNameTextView.setText(currentUser.getUsername());
+        String signature = currentUser.getSignature();
+        if (TextUtil.isEmpty(signature)) {
+            mSignatureTextView.setText(R.string.activity_person_default_signature);
+        } else {
+            mSignatureTextView.setText(signature);
+        }
+        mFollowTextView.setText(String.valueOf(currentUser.getFollowCount()));
+        mFansTextView.setText(String.valueOf(currentUser.getFansCount()));
+    }
+
     private void initView(View root) {
         mPersonShiftViewPager = root.findViewById(R.id.note_like_person_viewPager);
         mPersonTabLayout = root.findViewById(R.id.note_like_person_tabLayout);
@@ -66,19 +84,6 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
 
         mPersonTabLayout.setupWithViewPager(mPersonShiftViewPager);
 
-        User currentUser = BmobUser.getCurrentUser(User.class);
-        if (currentUser == null) {
-            return;
-        }
-        mNameTextView.setText(currentUser.getUsername());
-        String signature = currentUser.getSignature();
-        if (TextUtil.isEmpty(signature)) {
-            mSignatureTextView.setText(R.string.activity_person_default_signature);
-        } else {
-            mSignatureTextView.setText(signature);
-        }
-        mFollowTextView.setText(String.valueOf(currentUser.getFollowCount()));
-        mFansTextView.setText(String.valueOf(currentUser.getFansCount()));
     }
 
     @Override
