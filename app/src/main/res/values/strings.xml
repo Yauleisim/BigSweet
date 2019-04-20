@@ -122,6 +122,8 @@
     <string name="activity_user_msg_title">个人资料</string>
     <string name="activity_user_msg_name">昵称</string>
     <string name="activity_user_msg_gender">性别</string>
+    <string name="activity_user_msg_male">男</string>
+    <string name="activity_user_msg_female">女</string>
     <string name="activity_user_msg_address">常住地</string>
     <string name="activity_user_msg_signature">个性签名</string>
     <string name="activity_user_msg_no">未填写</string>

@@ -3,6 +3,7 @@ package com.graduation.yau.bigsweet.settings;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.graduation.yau.bigsweet.R;
@@ -22,7 +23,8 @@ import cn.bmob.v3.listener.UpdateListener;
 public class UserMessageActivity extends BaseActivity {
 
     private EditText mNameEditText, mSignatureEditText, mAddressEditText;
-    private String mName, mSignature, mAddress;
+    private RadioButton mMaleRadioButton, mFemaleRadioButton;
+    private String mName, mSignature, mAddress, mGender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class UserMessageActivity extends BaseActivity {
         mNameEditText = findViewById(R.id.name_user_message_editText);
         mSignatureEditText = findViewById(R.id.signature_user_message_editText);
         mAddressEditText = findViewById(R.id.address_user_message_editText);
+        mMaleRadioButton = findViewById(R.id.male_user_message_radioButton);
+        mFemaleRadioButton = findViewById(R.id.female_user_message_radioButton);
     }
 
     @Override
@@ -54,6 +58,16 @@ public class UserMessageActivity extends BaseActivity {
         mSignature = currentUser.getSignature();
         if (!TextUtil.isEmpty(mSignature)) {
             mSignatureEditText.setText(mSignature);
+        }
+        mGender = currentUser.getGender();
+        if (!TextUtil.isEmpty(mGender) && mGender.equals(getString(R.string.activity_user_msg_female))) {
+            mFemaleRadioButton.setChecked(true);
+            mMaleRadioButton.setChecked(false);
+            mGender = getString(R.string.activity_user_msg_female);
+        } else {
+            mFemaleRadioButton.setChecked(false);
+            mMaleRadioButton.setChecked(true);
+            mGender = getString(R.string.activity_user_msg_male);
         }
     }
 
@@ -92,6 +106,13 @@ public class UserMessageActivity extends BaseActivity {
         String signature = mSignatureEditText.getText().toString();
         if (!TextUtil.equals(signature, mSignature)) {
             user.setSignature(signature);
+            flag = true;
+        }
+        if (mMaleRadioButton.isChecked() && mGender.equals(getString(R.string.activity_user_msg_female))) {
+            user.setGender(getString(R.string.activity_user_msg_male));
+            flag = true;
+        } else if (mFemaleRadioButton.isChecked() && mGender.equals(getString(R.string.activity_user_msg_male))) {
+            user.setGender(getString(R.string.activity_user_msg_female));
             flag = true;
         }
         if (!flag) {
