@@ -15,6 +15,7 @@
     <string name="activity_person_follow">关注</string>
     <string name="activity_person_fans">粉丝</string>
     <string name="activity_person_edit">编辑个人资料</string>
+    <string name="activity_person_dialog_title">用哪种方式打开</string>
 
     <string name="activity_post_send">发表</string>
     <string name="activity_post_location">所在位置</string>
@@ -148,5 +149,10 @@
     <string name="dialog_quit_title">退出提示</string>
     <string name="dialog_quit_content">你确定要退出该账号嘛？</string>
     <string name="dialog_quit_toast">已退出当前账号，请重新登陆</string>
+
+    <string name="toast_permission_deny">部分权限获取失败，正常功能受到影响</string>
+    <string name="toast_permission_read">请授予读取存储权限</string>
+    <string name="toast_permission_write">请授予相机和读写权限</string>
+    <string name="toast_permission_error">设备没有sdcard！</string>
 
 </resources>
