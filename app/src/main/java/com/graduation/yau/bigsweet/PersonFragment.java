@@ -9,8 +9,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.graduation.yau.bigsweet.settings.SettingsActivity;
 import com.graduation.yau.bigsweet.settings.UserMessageActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
@@ -27,6 +31,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     private PersonShiftViewPagerAdapter mPersonShiftViewPagerAdapter;
     private TabLayout mPersonTabLayout;
     private TextView mNameTextView, mSignatureTextView, mFollowTextView, mFansTextView;
+    private ImageView mAvatarImageView;
 
     @Nullable
     @Override
@@ -58,6 +63,12 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         }
         mFollowTextView.setText(String.valueOf(currentUser.getFollowCount()));
         mFansTextView.setText(String.valueOf(currentUser.getFansCount()));
+        String avatarUrl = currentUser.getAvatarUrl();
+        if (TextUtil.isEmpty(avatarUrl)) {
+            Glide.with(this).load(R.mipmap.ic_person_avatar).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mAvatarImageView);
+        } else {
+            Glide.with(this).load(avatarUrl).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mAvatarImageView);
+        }
     }
 
     private void initView(View root) {
@@ -67,6 +78,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         mSignatureTextView = root.findViewById(R.id.signature_person_textView);
         mFollowTextView = root.findViewById(R.id.follow_count_person_textView);
         mFansTextView = root.findViewById(R.id.fans_count_person_textView);
+        mAvatarImageView = root.findViewById(R.id.avatar_person_imageView);
     }
 
     private void initEvent(View root) {

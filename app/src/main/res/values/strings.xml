@@ -133,6 +133,8 @@
     <string name="activity_user_msg_apply">点击申请</string>
     <string name="activity_user_msg_success">修改成功</string>
     <string name="activity_user_msg_fail">出错啦，刚才的修改已丢失T T</string>
+    <string name="activity_user_msg_avatar_success">修改头像成功</string>
+    <string name="activity_user_msg_avatar_fail">修改头像失败T T</string>
 
     <string name="activity_about_title">关于一点甜</string>
     <string name="activity_about_introduce">功能介绍</string>

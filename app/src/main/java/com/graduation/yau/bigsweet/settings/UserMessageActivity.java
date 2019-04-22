@@ -16,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.User;
 import com.graduation.yau.bigsweet.base.BaseActivity;
@@ -29,8 +32,10 @@ import com.graduation.yau.bigsweet.util.ToastUtil;
 import java.io.File;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
 
 /**
  * Created by YAULEISIM on 2019/4/2.
@@ -40,15 +45,17 @@ public class UserMessageActivity extends BaseActivity {
 
     private EditText mNameEditText, mSignatureEditText;
     private RadioButton mMaleRadioButton, mFemaleRadioButton;
-    private String mName, mSignature, mGender;
+    private String mName, mSignature, mGender, mAvatarUrl;
     private ImageView mAvatarImageView;
 
     private int mOpenChoice = 0;
     private static final int CODE_GALLERY_REQUEST = 0xa0;
     private static final int CODE_CAMERA_REQUEST = 0xa1;
     private static final int CODE_RESULT_REQUEST = 0xa2;
-    private File fileUri = new File(Environment.getExternalStorageDirectory().getPath() + "/photo.jpg");
-    private File fileCropUri = new File(Environment.getExternalStorageDirectory().getPath() + "/crop_photo.jpg");
+    private String filePath = Environment.getExternalStorageDirectory().getPath() + "/photo.jpg";
+    private String fileCropPath = Environment.getExternalStorageDirectory().getPath() + "/crop_photo.jpg";
+    private File fileUri = new File(filePath);
+    private File fileCropUri = new File(fileCropPath);
     private Uri imageUri;
     private Uri cropImageUri;
     private PermissionHelper mPermissionHelper;
@@ -91,6 +98,10 @@ public class UserMessageActivity extends BaseActivity {
             mFemaleRadioButton.setChecked(false);
             mMaleRadioButton.setChecked(true);
             mGender = getString(R.string.activity_user_msg_male);
+        }
+        mAvatarUrl = currentUser.getAvatarUrl();
+        if (!TextUtil.isEmpty(mAvatarUrl)) {
+            Glide.with(this).load(mAvatarUrl).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mAvatarImageView);
         }
 
         findViewById(R.id.avatar_user_message_constraintLayout).setOnClickListener(this);
@@ -262,6 +273,35 @@ public class UserMessageActivity extends BaseActivity {
     }
 
     private void showImages(Bitmap bitmap) {
-        mAvatarImageView.setImageBitmap(bitmap);
+        Glide.with(this).load(bitmap).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mAvatarImageView);
+        // 上传至后台
+        final BmobFile bmobFile = new BmobFile(fileCropUri);
+        bmobFile.uploadblock(new UploadFileListener() {
+
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    //bmobFile.getFileUrl()--返回的上传文件的完整地址
+                    User user = BmobUser.getCurrentUser(User.class);
+                    user.setAvatarUrl(bmobFile.getFileUrl());
+                    user.setUsername(null);
+                    user.update(new UpdateListener() {
+                        @Override
+                        public void done(BmobException e) {
+                            if (e == null) {
+                                ToastUtil.show(UserMessageActivity.this, R.string.activity_user_msg_avatar_success, Toast.LENGTH_SHORT, true);
+                            } else {
+                                e.printStackTrace();
+                                ToastUtil.show(UserMessageActivity.this, R.string.activity_user_msg_avatar_fail, Toast.LENGTH_SHORT, false);
+                            }
+                        }
+                    });
+                } else {
+                    e.printStackTrace();
+                    ToastUtil.show(UserMessageActivity.this, R.string.activity_user_msg_avatar_fail, Toast.LENGTH_SHORT, false);
+                }
+
+            }
+        });
     }
 }
