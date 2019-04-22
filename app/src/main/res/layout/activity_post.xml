@@ -39,27 +39,57 @@
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/back_post_imageView" />
 
-    <ImageView
-        android:id="@+id/add_picture_post_imageView"
-        android:layout_width="100dp"
+    <LinearLayout
+        android:id="@+id/add_picture_post_LinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_add_picture"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/location_post_constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_post_editText" />
+        app:layout_constraintTop_toBottomOf="@id/input_post_editText">
+
+        <ImageView
+            android:id="@+id/add_picture_post_imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_add_picture" />
+
+        <ImageView
+            android:id="@+id/one_picture_post_imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_add_picture"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/two_picture_post_imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_add_picture"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/location_post_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@id/public_post_constraintLayout"
-        app:layout_constraintTop_toBottomOf="@id/add_picture_post_imageView">
+        app:layout_constraintTop_toBottomOf="@id/add_picture_post_LinearLayout">
 
         <View
             android:id="@+id/separator_one_post_view"

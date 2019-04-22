@@ -43,6 +43,23 @@
         <activity android:name=".settings.BindPhoneActivity" />
         <activity android:name=".settings.BindEmailActivity" />
         <activity android:name=".settings.ChangePasswordActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name="com.winfo.photoselector.ImageSelectorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name="com.winfo.photoselector.PreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme2" />
+
+        <activity
+            android:name="com.winfo.photoselector.RvPreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme2" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
