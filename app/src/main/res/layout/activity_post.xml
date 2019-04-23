@@ -106,6 +106,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/ic_post_location"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -117,6 +118,7 @@
             android:text="@string/activity_post_location"
             android:textColor="@color/text_color"
             android:textSize="16sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/location_post_imageView"
             app:layout_constraintTop_toTopOf="parent"
@@ -127,6 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:src="@drawable/ic_go_right"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -148,6 +151,7 @@
             android:layout_height="1dp"
             android:layout_marginStart="24dp"
             android:background="@color/bg_separator_view"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

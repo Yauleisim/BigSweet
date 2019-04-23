@@ -2,7 +2,6 @@ package com.graduation.yau.bigsweet.util;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 
 import com.graduation.yau.bigsweet.R;
@@ -33,5 +32,17 @@ public class DialogUtil {
         singleChoiceDialog.setSingleChoiceItems(items, 0, choiceListener);
         singleChoiceDialog.setPositiveButton(R.string.dialog_normal_positive, positiveListener);
         singleChoiceDialog.show();
+    }
+
+    public static void showInputDialog(Context context, int title, DialogInterface.OnClickListener positiveListener, DialogInterface.OnClickListener negativeListener) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setView(R.layout.dialog_input_topic)
+                .setPositiveButton(R.string.dialog_normal_positive, positiveListener)
+                .setNegativeButton(R.string.dialog_normal_negative, negativeListener);
+        AlertDialog inputDialog = dialogBuilder.create();
+        inputDialog.show();
+        inputDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        inputDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
     }
 }
