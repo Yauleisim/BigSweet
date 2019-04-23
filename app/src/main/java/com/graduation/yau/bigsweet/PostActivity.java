@@ -13,13 +13,25 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.graduation.yau.bigsweet.base.BaseActivity;
+import com.graduation.yau.bigsweet.model.Post;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.util.DialogUtil;
+import com.graduation.yau.bigsweet.util.TextUtil;
+import com.graduation.yau.bigsweet.util.ToastUtil;
 import com.winfo.photoselector.PhotoSelector;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UploadFileListener;
 
 /**
  * Created by YAULEISIM on 2019/3/24.
@@ -31,8 +43,13 @@ public class PostActivity extends BaseActivity {
     private ArrayList<String> mImageArrayList;
     private ImageView mAddImageView, mOneImageView, mTwoImageView;
     private TextView mPublicResultTextView, mTopicResultTextView;
+    private EditText mContentEditText;
     private int mPublicChoice = 0;
     private int maxSelectCount;
+    private int mUploadCount = 0;
+    private ArrayList<String> mImagePathList = new ArrayList<>(), mImageUrlList = new ArrayList<>();
+    private boolean mPublicResult = true;
+    private String mTopicResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +66,7 @@ public class PostActivity extends BaseActivity {
         mTwoImageView = findViewById(R.id.two_picture_post_imageView);
         mPublicResultTextView = findViewById(R.id.public_result_post_textView);
         mTopicResultTextView = findViewById(R.id.topic_result_post_textView);
+        mContentEditText = findViewById(R.id.input_post_editText);
     }
 
     @Override
@@ -115,6 +133,7 @@ public class PostActivity extends BaseActivity {
                                 mTwoImageView.setOnClickListener(null);
                                 mAddImageView.setOnClickListener(null);
                                 mOneImageView.setOnClickListener(null);
+                                mImagePathList.add(mImageArrayList.get(0));
                             }
                             break;
                         case 2:
@@ -128,6 +147,7 @@ public class PostActivity extends BaseActivity {
                                     mTwoImageView.setOnClickListener(this);
                                     mAddImageView.setOnClickListener(null);
                                     mOneImageView.setOnClickListener(null);
+                                    mImagePathList.add(mImageArrayList.get(0));
                                     break;
                                 case 2:
                                     // 又选了2张
@@ -138,6 +158,8 @@ public class PostActivity extends BaseActivity {
                                     mAddImageView.setOnClickListener(null);
                                     mOneImageView.setOnClickListener(null);
                                     mTwoImageView.setOnClickListener(null);
+                                    mImagePathList.add(mImageArrayList.get(0));
+                                    mImagePathList.add(mImageArrayList.get(1));
                                     break;
                                 default:
                                     break;
@@ -155,6 +177,9 @@ public class PostActivity extends BaseActivity {
                                     mAddImageView.setOnClickListener(null);
                                     mOneImageView.setOnClickListener(null);
                                     mTwoImageView.setOnClickListener(null);
+                                    mImagePathList.add(mImageArrayList.get(0));
+                                    mImagePathList.add(mImageArrayList.get(1));
+                                    mImagePathList.add(mImageArrayList.get(2));
                                     break;
                                 case 2:
                                     // 选了2张
@@ -166,6 +191,8 @@ public class PostActivity extends BaseActivity {
                                     mTwoImageView.setOnClickListener(this);
                                     mAddImageView.setOnClickListener(null);
                                     mOneImageView.setOnClickListener(null);
+                                    mImagePathList.add(mImageArrayList.get(0));
+                                    mImagePathList.add(mImageArrayList.get(1));
                                     break;
                                 case 1:
                                     // 选了1张
@@ -176,6 +203,7 @@ public class PostActivity extends BaseActivity {
                                     mOneImageView.setOnClickListener(this);
                                     mAddImageView.setOnClickListener(null);
                                     mTwoImageView.setOnClickListener(null);
+                                    mImagePathList.add(mImageArrayList.get(0));
                                     break;
                                 default:
                                     break;
@@ -216,10 +244,12 @@ public class PostActivity extends BaseActivity {
                 // 公开
                 mPublicResultTextView.setVisibility(View.VISIBLE);
                 mPublicResultTextView.setText("公开");
+                mPublicResult = true;
             } else if (mPublicChoice == 1) {
                 // 私密
                 mPublicResultTextView.setVisibility(View.VISIBLE);
                 mPublicResultTextView.setText("私密");
+                mPublicResult = false;
             }
         }
     };
@@ -234,8 +264,12 @@ public class PostActivity extends BaseActivity {
                 .setPositiveButton(R.string.dialog_normal_positive, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mTopicResultTextView.setVisibility(View.VISIBLE);
-                        mTopicResultTextView.setText(editText.getText().toString());
+                        String result = editText.getText().toString();
+                        if (!TextUtil.isEmpty(result)) {
+                            mTopicResultTextView.setVisibility(View.VISIBLE);
+                            mTopicResultTextView.setText(result);
+                            mTopicResult = result;
+                        }
                     }
                 })
                 .setNegativeButton(R.string.dialog_normal_negative, new DialogInterface.OnClickListener() {
@@ -251,10 +285,69 @@ public class PostActivity extends BaseActivity {
     }
 
     private void doPost() {
-        // 文字内容存下来
+        // 文字内容
+        String content = mContentEditText.getText().toString();
+        if (TextUtil.isEmpty(content) && mImagePathList.size() == 0) {
+            ToastUtil.show(this, R.string.activity_post_error, Toast.LENGTH_SHORT, false);
+            return;
+        }
+        Post post = new Post();
+        post.setContent(content);
+        // 谁可以看
+        post.setPublic(mPublicResult);
+        // 参与话题
+        post.setTopic(mTopicResult);
+        // 发帖人
+        post.setUserId(BmobUser.getCurrentUser(User.class).getObjectId());
         // 照片上传，存url
-        // 谁可以看的结果存下来
-        // 参与话题存下来
+        for (int i = 0; i < mImagePathList.size(); i++) {
+            uploadPic(mImagePathList.get(i), post);
+        }
+    }
+
+    private void uploadPic(String path, final Post post) {
+        final BmobFile bmobFile = new BmobFile(new File(path));
+        bmobFile.uploadblock(new UploadFileListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e != null) {
+                    e.printStackTrace();
+                    ToastUtil.show(PostActivity.this, R.string.activity_post_fail, Toast.LENGTH_SHORT, false);
+                } else {
+                    mImageUrlList.add(bmobFile.getFileUrl());
+                    if (mImageUrlList.size() == mImagePathList.size()) {
+                        switch (mImageUrlList.size()) {
+                            case 1:
+                                post.setPictureOne(mImageUrlList.get(0));
+                                break;
+                            case 2:
+                                post.setPictureOne(mImageUrlList.get(0));
+                                post.setPictureTwo(mImageUrlList.get(1));
+                                break;
+                            case 3:
+                                post.setPictureOne(mImageUrlList.get(0));
+                                post.setPictureTwo(mImageUrlList.get(1));
+                                post.setPictureThree(mImageUrlList.get(2));
+                                break;
+                            default:
+                                break;
+                        }
+                        post.save(new SaveListener<String>() {
+                            @Override
+                            public void done(String s, BmobException e) {
+                                if (e == null) {
+                                    ToastUtil.show(PostActivity.this, R.string.activity_post_success, Toast.LENGTH_SHORT, true);
+                                    finish();
+                                } else {
+                                    e.printStackTrace();
+                                    ToastUtil.show(PostActivity.this, R.string.activity_post_fail, Toast.LENGTH_SHORT, false);
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
     }
 
 }

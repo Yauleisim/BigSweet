@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.graduation.yau.bigsweet.MainActivity;
 import com.graduation.yau.bigsweet.R;
-import com.graduation.yau.bigsweet.User;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.util.TextUtil;

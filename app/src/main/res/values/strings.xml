@@ -22,6 +22,9 @@
     <string name="activity_post_public">谁可以看</string>
     <string name="activity_post_topic">参与话题</string>
     <string name="activity_post_hint">分享你的甜品吧</string>
+    <string name="activity_post_success">发表成功</string>
+    <string name="activity_post_fail">发表失败</string>
+    <string name="activity_post_error">内容和图片不能同时为空</string>
 
     <string name="activity_settings_title">设置</string>
     <string name="activity_settings_user_msg">个人资料</string>

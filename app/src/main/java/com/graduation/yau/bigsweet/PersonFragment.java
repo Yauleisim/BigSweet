@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.settings.SettingsActivity;
 import com.graduation.yau.bigsweet.settings.UserMessageActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;

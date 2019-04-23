@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.graduation.yau.bigsweet.R;
-import com.graduation.yau.bigsweet.User;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.util.AvatarUtil;
 import com.graduation.yau.bigsweet.util.DialogUtil;

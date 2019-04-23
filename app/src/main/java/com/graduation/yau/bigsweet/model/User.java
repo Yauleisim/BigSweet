@@ -1,4 +1,4 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.model;
 
 import cn.bmob.v3.BmobUser;
 

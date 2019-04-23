@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.graduation.yau.bigsweet.R;
-import com.graduation.yau.bigsweet.User;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
