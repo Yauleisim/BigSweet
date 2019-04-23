@@ -13,7 +13,6 @@ import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.util.ToastUtil;
 
-import cn.bmob.v3.BmobBatch;
 import cn.bmob.v3.BmobUser;
 
 /**
@@ -67,11 +66,6 @@ public class SettingsActivity extends BaseActivity {
                                 StartActivityUtil.goWithFlag(SettingsActivity.this, LoginActivity.class,
                                         Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 finish();
-                            }
-                        },
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
                             }
                         });
                 break;

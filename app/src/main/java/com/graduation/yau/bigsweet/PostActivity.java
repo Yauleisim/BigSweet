@@ -1,13 +1,18 @@
 package com.graduation.yau.bigsweet;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.graduation.yau.bigsweet.base.BaseActivity;
@@ -25,6 +30,7 @@ public class PostActivity extends BaseActivity {
     private static final int RESULT_OK = 1;
     private ArrayList<String> mImageArrayList;
     private ImageView mAddImageView, mOneImageView, mTwoImageView;
+    private TextView mPublicResultTextView, mTopicResultTextView;
     private int mPublicChoice = 0;
     private int maxSelectCount;
 
@@ -41,6 +47,8 @@ public class PostActivity extends BaseActivity {
         mAddImageView = findViewById(R.id.add_picture_post_imageView);
         mOneImageView = findViewById(R.id.one_picture_post_imageView);
         mTwoImageView = findViewById(R.id.two_picture_post_imageView);
+        mPublicResultTextView = findViewById(R.id.public_result_post_textView);
+        mTopicResultTextView = findViewById(R.id.topic_result_post_textView);
     }
 
     @Override
@@ -63,11 +71,12 @@ public class PostActivity extends BaseActivity {
                 break;
             case R.id.send_post_button:
                 // 发贴
+                doPost();
                 break;
             case R.id.location_post_constraintLayout:
                 break;
             case R.id.topic_post_constraintLayout:
-                DialogUtil.showInputDialog(this, R.string.activity_post_topic, topicPositiveListener, topicNegativeListener);
+                showInputDialog(this, R.string.activity_post_topic);
                 break;
             case R.id.public_post_constraintLayout:
                 String[] items = {"公开", "私密"};
@@ -205,24 +214,47 @@ public class PostActivity extends BaseActivity {
         public void onClick(DialogInterface dialog, int which) {
             if (mPublicChoice == 0) {
                 // 公开
+                mPublicResultTextView.setVisibility(View.VISIBLE);
+                mPublicResultTextView.setText("公开");
             } else if (mPublicChoice == 1) {
                 // 私密
+                mPublicResultTextView.setVisibility(View.VISIBLE);
+                mPublicResultTextView.setText("私密");
             }
         }
     };
 
-    private DialogInterface.OnClickListener topicPositiveListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
+    private void showInputDialog(final Context context, int title) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.dialog_input_topic, null);
+        final EditText editText = view.findViewById(R.id.topic_dialog_input_topic_editText);
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setView(view)
+                .setPositiveButton(R.string.dialog_normal_positive, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mTopicResultTextView.setVisibility(View.VISIBLE);
+                        mTopicResultTextView.setText(editText.getText().toString());
+                    }
+                })
+                .setNegativeButton(R.string.dialog_normal_negative, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-        }
-    };
+                    }
+                });
+        AlertDialog inputDialog = dialogBuilder.create();
+        inputDialog.show();
+        inputDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        inputDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
+    }
 
-    private DialogInterface.OnClickListener topicNegativeListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-
-        }
-    };
+    private void doPost() {
+        // 文字内容存下来
+        // 照片上传，存url
+        // 谁可以看的结果存下来
+        // 参与话题存下来
+    }
 
 }

@@ -13,7 +13,7 @@ import com.graduation.yau.bigsweet.R;
 
 public class DialogUtil {
 
-    public static void showNormalDialog(Context context, int title, int content, DialogInterface.OnClickListener positiveListener, DialogInterface.OnClickListener negativeListener) {
+    public static void showNormalDialog(Context context, int title, int content, DialogInterface.OnClickListener positiveListener) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
                 .setTitle(title)
                 .setMessage(content)
@@ -34,15 +34,10 @@ public class DialogUtil {
         singleChoiceDialog.show();
     }
 
-    public static void showInputDialog(Context context, int title, DialogInterface.OnClickListener positiveListener, DialogInterface.OnClickListener negativeListener) {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
-                .setTitle(title)
-                .setView(R.layout.dialog_input_topic)
-                .setPositiveButton(R.string.dialog_normal_positive, positiveListener)
-                .setNegativeButton(R.string.dialog_normal_negative, negativeListener);
-        AlertDialog inputDialog = dialogBuilder.create();
-        inputDialog.show();
-        inputDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
-        inputDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
-    }
+    private static DialogInterface.OnClickListener negativeListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+
+        }
+    };
 }

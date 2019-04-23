@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <EditText
+        android:id="@+id/topic_dialog_input_topic_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
