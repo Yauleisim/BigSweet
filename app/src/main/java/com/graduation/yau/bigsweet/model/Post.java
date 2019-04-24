@@ -21,6 +21,36 @@ public class Post extends BmobObject {
 
     private boolean isPublic;
 
+    private int likeCount;
+
+    private int shareCount;
+
+    private int commentCount;
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public int getShareCount() {
+        return shareCount;
+    }
+
+    public void setShareCount(int shareCount) {
+        this.shareCount = shareCount;
+    }
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
+    }
+
     public String getPictureOne() {
         return pictureOne;
     }

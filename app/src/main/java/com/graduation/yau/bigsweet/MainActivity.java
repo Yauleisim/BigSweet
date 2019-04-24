@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
+import com.graduation.yau.bigsweet.home.HomeFragment;
+
 public class MainActivity extends AppCompatActivity implements HomeFragment.goToPersonFragment {
 
     protected static ViewPager mShiftViewPager;

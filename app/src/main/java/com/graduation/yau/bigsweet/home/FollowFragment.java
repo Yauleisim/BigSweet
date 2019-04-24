@@ -1,4 +1,4 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.home;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.graduation.yau.bigsweet.R;
+
 /**
  * Created by YAULEISIM on 2019/4/10.
  */
 
-public class RecommendFragment extends Fragment {
+public class FollowFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recommend, container, false);
+        return inflater.inflate(R.layout.fragment_follow, container, false);
     }
 
     @Override

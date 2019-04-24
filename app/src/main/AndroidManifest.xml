@@ -43,6 +43,8 @@
         <activity android:name=".settings.BindPhoneActivity" />
         <activity android:name=".settings.BindEmailActivity" />
         <activity android:name=".settings.ChangePasswordActivity" />
+        <activity android:name=".PostDetailActivity" />
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

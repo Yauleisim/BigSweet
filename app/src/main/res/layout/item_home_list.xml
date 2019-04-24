@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_item_home_list_constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <View
         android:layout_width="match_parent"
@@ -15,27 +17,25 @@
         android:id="@+id/head_item_home_list_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/avatar_item_home_list_circleImageView"
+            android:id="@+id/avatar_item_home_list_imageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="12dp"
-            android:src="@mipmap/ic_person_avatar"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/name_item_home_"
+            android:id="@+id/name_item_home_list_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="Keizaang"
             android:textColor="@color/text_color"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/avatar_item_home_list_circleImageView"
+            app:layout_constraintStart_toEndOf="@id/avatar_item_home_list_imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
@@ -46,8 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:text="三里清风三里路，步步清风再无你。"
+        android:layout_marginTop="16dp"
+        android:ellipsize="end"
+        android:maxLines="5"
         android:textColor="@color/text_color"
         android:textSize="14dp"
         app:layout_constraintTop_toBottomOf="@id/head_item_home_list_constraintLayout" />
@@ -62,13 +63,14 @@
         app:layout_constraintTop_toBottomOf="@id/content_item_home_list_textView">
 
         <ImageView
-            android:id="@+id/one"
+            android:id="@+id/one_picture_item_home_list_ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@mipmap/ic_person_avatar" />
 
         <ImageView
+            android:id="@+id/two_picture_item_home_list_ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -76,6 +78,7 @@
             android:src="@mipmap/ic_person_avatar" />
 
         <ImageView
+            android:id="@+id/three_picture_item_home_list_ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -97,22 +100,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_label_item"
-            android:padding="5dp">
+            android:paddingBottom="2dp"
+            android:paddingRight="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="2dp">
 
             <ImageView
                 android:id="@+id/label_item_home_list_imageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:src="@drawable/ic_label_count" />
 
             <TextView
                 android:id="@+id/label_item_home_list_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="蛋糕"
                 android:textColor="@color/white"
-                android:textSize="14dp"
+                android:textSize="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/label_item_home_list_imageView"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -128,7 +132,8 @@
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/label_item_home_list_constraintLayout">
 
         <android.support.constraint.ConstraintLayout
@@ -138,8 +143,9 @@
 
             <ImageView
                 android:id="@+id/like_item_home_list_imageView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="2dp"
                 android:src="@drawable/ic_like_count" />
 
             <TextView
@@ -147,7 +153,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="0"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/like_item_home_list_imageView"
@@ -163,8 +168,9 @@
 
             <ImageView
                 android:id="@+id/comment_item_home_list_imageView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="2dp"
                 android:src="@drawable/ic_comment_count" />
 
             <TextView
@@ -172,7 +178,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="0"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/comment_item_home_list_imageView"
@@ -188,8 +193,9 @@
 
             <ImageView
                 android:id="@+id/share_item_home_list_imageView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="3dp"
                 android:src="@drawable/ic_share_count" />
 
             <TextView
@@ -197,7 +203,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="0"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/share_item_home_list_imageView"

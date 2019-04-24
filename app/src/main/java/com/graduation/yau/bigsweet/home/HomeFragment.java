@@ -1,4 +1,4 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.home;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.graduation.yau.bigsweet.PostActivity;
+import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 import java.util.ArrayList;
