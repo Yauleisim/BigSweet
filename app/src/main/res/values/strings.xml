@@ -25,6 +25,8 @@
     <string name="activity_post_success">发表成功</string>
     <string name="activity_post_fail">发表失败</string>
     <string name="activity_post_error">内容和图片不能同时为空</string>
+    <string name="activity_post_dialog_title">发表中</string>
+    <string name="activity_post_dialog_content">请等待</string>
 
     <string name="activity_settings_title">设置</string>
     <string name="activity_settings_user_msg">个人资料</string>

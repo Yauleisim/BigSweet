@@ -291,6 +291,7 @@ public class PostActivity extends BaseActivity {
             ToastUtil.show(this, R.string.activity_post_error, Toast.LENGTH_SHORT, false);
             return;
         }
+        DialogUtil.showWaitingDialog(this, R.string.activity_post_dialog_title, R.string.activity_post_dialog_content);
         Post post = new Post();
         post.setContent(content);
         // 谁可以看
@@ -300,8 +301,12 @@ public class PostActivity extends BaseActivity {
         // 发帖人
         post.setUserId(BmobUser.getCurrentUser(User.class).getObjectId());
         // 照片上传，存url
-        for (int i = 0; i < mImagePathList.size(); i++) {
-            uploadPic(mImagePathList.get(i), post);
+        if (mImagePathList.size() == 0) {
+            savePost(post);
+        } else {
+            for (int i = 0; i < mImagePathList.size(); i++) {
+                uploadPic(mImagePathList.get(i), post);
+            }
         }
     }
 
@@ -312,6 +317,7 @@ public class PostActivity extends BaseActivity {
             public void done(BmobException e) {
                 if (e != null) {
                     e.printStackTrace();
+                    DialogUtil.dismissWaitingDialog();
                     ToastUtil.show(PostActivity.this, R.string.activity_post_fail, Toast.LENGTH_SHORT, false);
                 } else {
                     mImageUrlList.add(bmobFile.getFileUrl());
@@ -332,19 +338,25 @@ public class PostActivity extends BaseActivity {
                             default:
                                 break;
                         }
-                        post.save(new SaveListener<String>() {
-                            @Override
-                            public void done(String s, BmobException e) {
-                                if (e == null) {
-                                    ToastUtil.show(PostActivity.this, R.string.activity_post_success, Toast.LENGTH_SHORT, true);
-                                    finish();
-                                } else {
-                                    e.printStackTrace();
-                                    ToastUtil.show(PostActivity.this, R.string.activity_post_fail, Toast.LENGTH_SHORT, false);
-                                }
-                            }
-                        });
+                        savePost(post);
                     }
+                }
+            }
+        });
+    }
+
+    private void savePost(Post post) {
+        post.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                if (e == null) {
+                    DialogUtil.dismissWaitingDialog();
+                    ToastUtil.show(PostActivity.this, R.string.activity_post_success, Toast.LENGTH_SHORT, true);
+                    finish();
+                } else {
+                    e.printStackTrace();
+                    DialogUtil.dismissWaitingDialog();
+                    ToastUtil.show(PostActivity.this, R.string.activity_post_fail, Toast.LENGTH_SHORT, false);
                 }
             }
         });

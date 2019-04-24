@@ -1,5 +1,6 @@
 package com.graduation.yau.bigsweet.util;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -12,6 +13,8 @@ import com.graduation.yau.bigsweet.R;
  */
 
 public class DialogUtil {
+
+    private static ProgressDialog waitingDialog;
 
     public static void showNormalDialog(Context context, int title, int content, DialogInterface.OnClickListener positiveListener) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
@@ -40,4 +43,20 @@ public class DialogUtil {
 
         }
     };
+
+    public static void showWaitingDialog(Context context, int title, int content) {
+        waitingDialog = new ProgressDialog(context);
+        waitingDialog.setTitle(title);
+        waitingDialog.setMessage(context.getString(content));
+        waitingDialog.setIndeterminate(true);
+        waitingDialog.setCancelable(false);
+        waitingDialog.show();
+    }
+
+    public static void dismissWaitingDialog() {
+        if (waitingDialog == null) {
+            return;
+        }
+        waitingDialog.dismiss();
+    }
 }
