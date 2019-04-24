@@ -7,6 +7,8 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class Post extends BmobObject {
+
+    private static final long serialVersionUID = 4530180474274266107L;
     private String pictureOne;
 
     private String pictureTwo;

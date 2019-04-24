@@ -52,7 +52,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
-        Post currentPost = mPostList.get(position);
+        final Post currentPost = mPostList.get(position);
 
         viewHolder.mLikeCountTextView.setText(ConvertUtil.intToString(currentPost.getLikeCount()));
         viewHolder.mShareCountTextView.setText(ConvertUtil.intToString(currentPost.getShareCount()));
@@ -108,7 +108,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         viewHolder.mRootConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StartActivityUtil.go(mContext, PostDetailActivity.class);
+                StartActivityUtil.goWithPost(mContext, PostDetailActivity.class, currentPost);
             }
         });
     }

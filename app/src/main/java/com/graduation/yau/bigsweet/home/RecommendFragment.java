@@ -78,7 +78,7 @@ public class RecommendFragment extends Fragment {
                     mPostList.addAll(object);
                     mPostRecommendAdapter.notifyDataSetChanged();
                 } else {
-
+                    e.printStackTrace();
                 }
             }
         });

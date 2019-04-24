@@ -3,6 +3,8 @@ package com.graduation.yau.bigsweet.util;
 import android.content.Context;
 import android.content.Intent;
 
+import com.graduation.yau.bigsweet.model.Post;
+
 /**
  * Created by YAULEISIM on 2019/4/2.
  */
@@ -22,6 +24,16 @@ public class StartActivityUtil {
         try {
             Intent mIntent = new Intent(fromActivity, toActivity);
             mIntent.setFlags(flag);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void goWithPost(Context fromActivity, Class toActivity, Post post) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("post", post);
             fromActivity.startActivity(mIntent);
         } catch (Exception e) {
             e.printStackTrace();
