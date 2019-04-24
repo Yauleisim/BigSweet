@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -14,12 +15,15 @@ import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.util.TextUtil;
+import com.graduation.yau.bigsweet.util.ToastUtil;
 
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by YAULEISIM on 2019/4/24.
@@ -28,8 +32,9 @@ import cn.bmob.v3.listener.FindListener;
 public class PostDetailActivity extends BaseActivity {
 
     private Post mPost;
+    private User mPoster;
     private ImageView mPosterAvatarImageView, mPictureOneImageView, mPictureTwoImageView, mPictureThreeImageView;
-    private TextView mPosterNameTextView, mContentTextView, mLabelTextView, mPostTimeTextView;
+    private TextView mPosterNameTextView, mContentTextView, mLabelTextView, mPostTimeTextView, mFollowTextView;
     private ConstraintLayout mLabelConstraintLayout;
     private LinearLayout mPictureLinearLayout;
 
@@ -57,6 +62,7 @@ public class PostDetailActivity extends BaseActivity {
         mPictureThreeImageView = findViewById(R.id.three_picture_post_detail_imageView);
         mLabelConstraintLayout = findViewById(R.id.label_post_detail_constraintLayout);
         mPictureLinearLayout = findViewById(R.id.picture_post_detail_linearLayout);
+        mFollowTextView = findViewById(R.id.follow_post_detail_textView);
     }
 
     @Override
@@ -69,6 +75,7 @@ public class PostDetailActivity extends BaseActivity {
         } else {
             mLabelConstraintLayout.setVisibility(View.GONE);
         }
+        mPostTimeTextView.setText(mPost.getUpdatedAt());
 
         BmobQuery<User> userBmobQuery = new BmobQuery<>();
         userBmobQuery.addWhereEqualTo("objectId", mPost.getUserId());
@@ -77,10 +84,9 @@ public class PostDetailActivity extends BaseActivity {
             public void done(List<User> object, BmobException e) {
                 if (e == null) {
                     if (object.size() == 1) {
-                        User poster = object.get(0);
-                        mPosterNameTextView.setText(poster.getUsername());
-                        mPostTimeTextView.setText(poster.getUpdatedAt());
-                        Glide.with(PostDetailActivity.this).load(poster.getAvatarUrl()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mPosterAvatarImageView);
+                        mPoster = object.get(0);
+                        mPosterNameTextView.setText(mPoster.getUsername());
+                        Glide.with(PostDetailActivity.this).load(mPoster.getAvatarUrl()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mPosterAvatarImageView);
                     }
                 } else {
                     e.printStackTrace();
@@ -109,5 +115,50 @@ public class PostDetailActivity extends BaseActivity {
         if (TextUtil.isEmpty(picThreeUrl) && TextUtil.isEmpty(picTwoUrl) && TextUtil.isEmpty(picOneUrl)) {
             mPictureLinearLayout.setVisibility(View.GONE);
         }
+
+        User currentUser = BmobUser.getCurrentUser(User.class);
+        String followId = mPost.getUserId();
+        if (currentUser.getObjectId().equals(followId)) {
+            mFollowTextView.setVisibility(View.GONE);
+        } else {
+            List followList = currentUser.getFollowList();
+            if (followList.size() != 0 && followList.contains(followId)) {
+                mFollowTextView.setText(R.string.activity_post_detail_followed);
+                mFollowTextView.setOnClickListener(null);
+            } else {
+                mFollowTextView.setOnClickListener(this);
+            }
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.follow_post_detail_textView:
+                doFollow();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void doFollow() {
+        final User currentUser = BmobUser.getCurrentUser(User.class);
+        currentUser.addAFollow(mPost.getUserId());
+        currentUser.setUsername(null);
+        currentUser.update(new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_success, Toast.LENGTH_SHORT, true);
+                    mFollowTextView.setText(R.string.activity_post_detail_followed);
+                    mFollowTextView.setOnClickListener(null);
+                } else {
+                    e.printStackTrace();
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_fail, Toast.LENGTH_SHORT, false);
+                }
+            }
+        });
     }
 }

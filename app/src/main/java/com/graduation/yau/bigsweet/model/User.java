@@ -1,5 +1,8 @@
 package com.graduation.yau.bigsweet.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.bmob.v3.BmobUser;
 
 /**
@@ -17,6 +20,36 @@ public class User extends BmobUser {
     private int followCount;
 
     private int fansCount;
+
+    private List<String> followList = new ArrayList<>();
+
+    private List<String> fansList = new ArrayList<>();
+
+    public List<String> getFollowList() {
+        return followList;
+    }
+
+    public void setFollowList(List<String> followList) {
+        this.followList = followList;
+    }
+
+    public void addAFollow(String followUserId) {
+        followList.add(followUserId);
+        this.followCount++;
+    }
+
+    public List<String> getFansList() {
+        return fansList;
+    }
+
+    public void setFansList(List<String> fansList) {
+        this.fansList = fansList;
+    }
+
+    public void addAFans(String fansUserId) {
+        fansList.add(fansUserId);
+        fansCount++;
+    }
 
     public String getGender() {
         return gender;
