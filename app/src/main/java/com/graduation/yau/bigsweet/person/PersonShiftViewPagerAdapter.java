@@ -1,4 +1,4 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.person;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

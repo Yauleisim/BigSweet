@@ -72,6 +72,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/head_home_constraintLayout"
         app:layout_constraintVertical_weight="1">
 

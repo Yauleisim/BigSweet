@@ -46,12 +46,12 @@ public class RecommendFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    private void initView(View root) {
+    protected void initView(View root) {
         mPostRecommendRecyclerView = root.findViewById(R.id.post_recommend_recyclerView);
 
     }
 
-    private void initEvent() {
+    protected void initEvent() {
         initData();
         mPostRecommendAdapter = new PostAdapter(getContext(), mPostList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

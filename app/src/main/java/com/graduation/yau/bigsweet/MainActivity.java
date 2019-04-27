@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.graduation.yau.bigsweet.home.HomeFragment;
+import com.graduation.yau.bigsweet.person.PersonFragment;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.goToPersonFragment {
 

@@ -1,4 +1,4 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.person;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.graduation.yau.bigsweet.R;
 
 /**
  * Created by YAULEISIM on 2019/4/9.

@@ -1,4 +1,4 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.person;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
+import com.graduation.yau.bigsweet.PostActivity;
+import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.settings.SettingsActivity;
 import com.graduation.yau.bigsweet.settings.UserMessageActivity;
@@ -75,6 +77,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     private void initView(View root) {
         mPersonShiftViewPager = root.findViewById(R.id.note_like_person_viewPager);
         mPersonTabLayout = root.findViewById(R.id.note_like_person_tabLayout);
+
         mNameTextView = root.findViewById(R.id.name_person_textView);
         mSignatureTextView = root.findViewById(R.id.signature_person_textView);
         mFollowTextView = root.findViewById(R.id.follow_count_person_textView);
