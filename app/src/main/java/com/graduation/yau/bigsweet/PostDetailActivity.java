@@ -33,10 +33,11 @@ public class PostDetailActivity extends BaseActivity {
 
     private Post mPost;
     private User mPoster;
-    private ImageView mPosterAvatarImageView, mPictureOneImageView, mPictureTwoImageView, mPictureThreeImageView;
-    private TextView mPosterNameTextView, mContentTextView, mLabelTextView, mPostTimeTextView, mFollowTextView;
+    private ImageView mPosterAvatarImageView, mPictureOneImageView, mPictureTwoImageView, mPictureThreeImageView, mLikeImageView;
+    private TextView mPosterNameTextView, mContentTextView, mLabelTextView, mPostTimeTextView, mFollowTextView, mLikeTextView;
     private ConstraintLayout mLabelConstraintLayout;
-    private LinearLayout mPictureLinearLayout;
+    private LinearLayout mPictureLinearLayout, mLikeLinearLayout;
+    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +64,24 @@ public class PostDetailActivity extends BaseActivity {
         mLabelConstraintLayout = findViewById(R.id.label_post_detail_constraintLayout);
         mPictureLinearLayout = findViewById(R.id.picture_post_detail_linearLayout);
         mFollowTextView = findViewById(R.id.follow_post_detail_textView);
+        mLikeLinearLayout = findViewById(R.id.like_post_detail_linearLayout);
+        mLikeImageView = findViewById(R.id.like_post_detail_imageView);
+        mLikeTextView = findViewById(R.id.like_count_post_detail_textView);
     }
 
     @Override
     protected void initEvent() {
         super.initEvent();
+        currentUser = BmobUser.getCurrentUser(User.class);
+        mLikeLinearLayout.setOnClickListener(this);
+        if (isCollect()) {
+            mLikeImageView.setImageResource(R.drawable.ic_like_selected);
+            mLikeTextView.setText(R.string.activity_post_detail_collected);
+        } else {
+            mLikeImageView.setImageResource(R.drawable.ic_like_count);
+            mLikeTextView.setText(R.string.activity_post_detail_like);
+        }
+
         mContentTextView.setText(mPost.getContent());
         String label = mPost.getTopic();
         if (!TextUtil.isEmpty(label)) {
@@ -138,25 +152,105 @@ public class PostDetailActivity extends BaseActivity {
             case R.id.follow_post_detail_textView:
                 doFollow();
                 break;
+            case R.id.like_post_detail_linearLayout:
+                if (isCollect()) {
+                    cancelCollect();
+                } else {
+                    doCollect();
+                }
+                break;
             default:
                 break;
         }
     }
 
     private void doFollow() {
-        final User currentUser = BmobUser.getCurrentUser(User.class);
+        if (currentUser == null) {
+            return;
+        }
         currentUser.addAFollow(mPost.getUserId());
         currentUser.setUsername(null);
         currentUser.update(new UpdateListener() {
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_success, Toast.LENGTH_SHORT, true);
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_follow_success, Toast.LENGTH_SHORT, true);
                     mFollowTextView.setText(R.string.activity_post_detail_followed);
                     mFollowTextView.setOnClickListener(null);
                 } else {
                     e.printStackTrace();
-                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_fail, Toast.LENGTH_SHORT, false);
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_follow_fail, Toast.LENGTH_SHORT, false);
+                }
+            }
+        });
+    }
+
+    private boolean isCollect() {
+        if (currentUser == null) {
+            return false;
+        }
+        return currentUser.getLikeList().contains(mPost.getObjectId());
+    }
+
+    private void doCollect() {
+        if (currentUser == null) {
+            return;
+        }
+        currentUser.addALikePost(mPost.getObjectId());
+        currentUser.setUsername(null);
+        currentUser.update(new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    mPost.addALikeCount();
+                    mPost.update(new UpdateListener() {
+                        @Override
+                        public void done(BmobException e) {
+                            if (e == null) {
+                                ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_collect_success, Toast.LENGTH_SHORT, true);
+                                mLikeImageView.setImageResource(R.drawable.ic_like_selected);
+                                mLikeTextView.setText(R.string.activity_post_detail_collected);
+                            } else {
+                                e.printStackTrace();
+                                ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_collect_error, Toast.LENGTH_SHORT, true);
+                            }
+                        }
+                    });
+                } else {
+                    e.printStackTrace();
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_collect_fail, Toast.LENGTH_SHORT, false);
+                }
+            }
+        });
+    }
+
+    private void cancelCollect() {
+        if (currentUser == null) {
+            return;
+        }
+        currentUser.removeALikePost(mPost.getObjectId());
+        currentUser.setUsername(null);
+        currentUser.update(new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    mPost.reduceALikeCount();
+                    mPost.update(new UpdateListener() {
+                        @Override
+                        public void done(BmobException e) {
+                            if (e == null) {
+                                ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_cancel_collect_success, Toast.LENGTH_SHORT, true);
+                                mLikeImageView.setImageResource(R.drawable.ic_like_count);
+                                mLikeTextView.setText(R.string.activity_post_detail_like);
+                            } else {
+                                e.printStackTrace();
+                                ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_cancel_collect_error, Toast.LENGTH_SHORT, true);
+                            }
+                        }
+                    });
+                } else {
+                    e.printStackTrace();
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_cancel_collect_fail, Toast.LENGTH_SHORT, false);
                 }
             }
         });

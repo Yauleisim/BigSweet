@@ -9,21 +9,39 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.home.RecommendFragment;
+import com.graduation.yau.bigsweet.model.Post;
+import com.graduation.yau.bigsweet.model.User;
+
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by YAULEISIM on 2019/4/9.
  */
 
-public class CollectionFragment extends Fragment {
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_collection, container, false);
-    }
+public class CollectionFragment extends RecommendFragment {
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void initData() {
+        BmobQuery<Post> postQuery = new BmobQuery<>();
+        User currentUser = BmobUser.getCurrentUser(User.class);
+        postQuery.addWhereContainedIn("objectId", currentUser.getLikeList());
+        postQuery.findObjects(new FindListener<Post>() {
+            @Override
+            public void done(List<Post> object, BmobException e) {
+                if (e == null) {
+                    mPostList.clear();
+                    mPostList.addAll(object);
+                    mPostRecommendAdapter.notifyDataSetChanged();
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

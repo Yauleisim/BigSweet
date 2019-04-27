@@ -150,9 +150,16 @@
     <string name="activity_post_detail_comment">评论</string>
     <string name="activity_post_detail_like">收藏</string>
     <string name="activity_post_detail_share">分享</string>
-    <string name="activity_post_detail_fail">关注失败</string>
-    <string name="activity_post_detail_success">关注成功</string>
+    <string name="activity_post_detail_follow_fail">关注失败</string>
+    <string name="activity_post_detail_follow_success">关注成功</string>
     <string name="activity_post_detail_followed">已关注</string>
+    <string name="activity_post_detail_collect_fail">收藏失败</string>
+    <string name="activity_post_detail_collect_success">收藏成功</string>
+    <string name="activity_post_detail_collect_error">悄悄地收藏了该帖子</string>
+    <string name="activity_post_detail_collected">已收藏</string>
+    <string name="activity_post_detail_cancel_collect_fail">取消收藏失败</string>
+    <string name="activity_post_detail_cancel_collect_success">取消收藏成功</string>
+    <string name="activity_post_detail_cancel_collect_error">悄悄地取消收藏了</string>
 
     <string name="dialog_normal_positive">确定</string>
     <string name="dialog_normal_negative">取消</string>

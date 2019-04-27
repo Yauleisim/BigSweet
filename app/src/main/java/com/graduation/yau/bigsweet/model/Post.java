@@ -37,6 +37,14 @@ public class Post extends BmobObject {
         this.likeCount = likeCount;
     }
 
+    public void addALikeCount() {
+        likeCount++;
+    }
+
+    public void reduceALikeCount() {
+        likeCount--;
+    }
+
     public int getShareCount() {
         return shareCount;
     }

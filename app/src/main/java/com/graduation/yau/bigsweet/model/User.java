@@ -25,6 +25,24 @@ public class User extends BmobUser {
 
     private List<String> fansList = new ArrayList<>();
 
+    public List<String> getLikeList() {
+        return likeList;
+    }
+
+    public void setLikeList(List<String> likeList) {
+        this.likeList = likeList;
+    }
+
+    public void addALikePost(String postId) {
+        likeList.add(postId);
+    }
+
+    public void removeALikePost(String postId) {
+        likeList.remove(postId);
+    }
+
+    private List<String> likeList = new ArrayList<>();
+
     public List<String> getFollowList() {
         return followList;
     }
