@@ -130,18 +130,16 @@ public class PostDetailActivity extends BaseActivity {
             mPictureLinearLayout.setVisibility(View.GONE);
         }
 
-        User currentUser = BmobUser.getCurrentUser(User.class);
         String followId = mPost.getUserId();
         if (currentUser.getObjectId().equals(followId)) {
             mFollowTextView.setVisibility(View.GONE);
         } else {
-            List followList = currentUser.getFollowList();
-            if (followList.size() != 0 && followList.contains(followId)) {
+            if (isFollow()) {
                 mFollowTextView.setText(R.string.activity_post_detail_followed);
-                mFollowTextView.setOnClickListener(null);
             } else {
-                mFollowTextView.setOnClickListener(this);
+                mFollowTextView.setText(R.string.activity_person_follow);
             }
+            mFollowTextView.setOnClickListener(this);
         }
     }
 
@@ -150,7 +148,11 @@ public class PostDetailActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.follow_post_detail_textView:
-                doFollow();
+                if (isFollow()) {
+                    cancelFollow();
+                } else {
+                    doFollow();
+                }
                 break;
             case R.id.like_post_detail_linearLayout:
                 if (isCollect()) {
@@ -162,6 +164,12 @@ public class PostDetailActivity extends BaseActivity {
             default:
                 break;
         }
+    }
+
+    private boolean isFollow() {
+        List followList = currentUser.getFollowList();
+        String followId = mPost.getUserId();
+        return followList.size() != 0 && followList.contains(followId);
     }
 
     private void doFollow() {
@@ -180,6 +188,26 @@ public class PostDetailActivity extends BaseActivity {
                 } else {
                     e.printStackTrace();
                     ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_follow_fail, Toast.LENGTH_SHORT, false);
+                }
+            }
+        });
+    }
+
+    private void cancelFollow() {
+        if (currentUser == null) {
+            return;
+        }
+        currentUser.reduceAFollow(mPost.getUserId());
+        currentUser.setUsername(null);
+        currentUser.update(new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_cancel_follow_success, Toast.LENGTH_SHORT, true);
+                    mFollowTextView.setText(R.string.activity_person_follow);
+                } else {
+                    e.printStackTrace();
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_cancel_follow_fail, Toast.LENGTH_SHORT, false);
                 }
             }
         });

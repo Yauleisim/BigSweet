@@ -56,6 +56,11 @@ public class User extends BmobUser {
         this.followCount++;
     }
 
+    public void reduceAFollow(String userId) {
+        followList.remove(userId);
+        followCount--;
+    }
+
     public List<String> getFansList() {
         return fansList;
     }
