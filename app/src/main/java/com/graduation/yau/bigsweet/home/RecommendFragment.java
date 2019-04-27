@@ -28,9 +28,9 @@ import cn.bmob.v3.listener.FindListener;
 public class RecommendFragment extends Fragment {
 
     private RecyclerView mPostRecommendRecyclerView;
-    private PostAdapter mPostRecommendAdapter;
+    protected PostAdapter mPostRecommendAdapter;
 
-    private ArrayList<Post> mPostList = new ArrayList<>();
+    protected ArrayList<Post> mPostList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -60,7 +60,7 @@ public class RecommendFragment extends Fragment {
         mPostRecommendRecyclerView.setAdapter(mPostRecommendAdapter);
     }
 
-    private void initData() {
+    protected void initData() {
         BmobQuery<Post> orderQuery = new BmobQuery<>();
         orderQuery.order("-likeCount");
         BmobQuery<Post> publicQuery = new BmobQuery<>();

@@ -75,7 +75,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     if (object.size() == 1) {
                         User poster = object.get(0);
                         viewHolder.mNameTextView.setText(poster.getUsername());
-                        Glide.with(mContext).load(poster.getAvatarUrl()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(viewHolder.mAvatarImageView);
+                        if (TextUtil.isEmpty(poster.getAvatarUrl())) {
+                            viewHolder.mAvatarImageView.setBackgroundResource(R.mipmap.ic_person_avatar);
+                        } else {
+                            Glide.with(mContext).load(poster.getAvatarUrl()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(viewHolder.mAvatarImageView);
+                        }
                     }
                 } else {
                     e.printStackTrace();
