@@ -2,59 +2,87 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_shop_list_item">
+    android:layout_height="130dp"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/picture_shop_list_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:src="@mipmap/ic_person_avatar"
-        app:layout_constraintBottom_toTopOf="@id/title_shop_list_textView"
-        app:layout_constraintDimensionRatio="1:1" />
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="12dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_shop_list_item"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title_shop_list_textView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:text="花间裳/白山茶/浪漫蕾丝法式半裙中长裙女2019花间裳/白山茶/浪漫蕾丝法式半裙中长裙女2019花间裳/白山茶/浪漫蕾丝法式半裙中长裙女2019"
         android:textColor="@color/text_color"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/picture_shop_list_imageView" />
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/picture_shop_list_imageView"
+        app:layout_constraintTop_toTopOf="@id/picture_shop_list_imageView" />
+
+    <TextView
+        android:id="@+id/tag_shop_list_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:textSize="12dp"
+        app:layout_constraintStart_toEndOf="@id/picture_shop_list_imageView"
+        app:layout_constraintTop_toBottomOf="@id/title_shop_list_textView" />
 
     <TextView
         android:id="@+id/price_shop_list_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="6dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:text="$ 359"
         android:textColor="#EA615B"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_shop_list_textView" />
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/picture_shop_list_imageView"
+        app:layout_constraintBottom_toTopOf="@id/get_more_shop_list_textView"
+        app:layout_constraintStart_toEndOf="@id/picture_shop_list_imageView" />
 
     <TextView
         android:id="@+id/sale_shop_list_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="6dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginTop="20dp"
-        android:text="已售 69"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@id/get_more_shop_list_textView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/get_more_shop_list_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="12dp"
+        android:text="详情"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_shop_list_textView" />
+        app:layout_constraintStart_toEndOf="@id/picture_shop_list_imageView" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="6dp"
+        android:src="@drawable/ic_go_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/get_more_shop_list_textView" />
 
 </android.support.constraint.ConstraintLayout>
 

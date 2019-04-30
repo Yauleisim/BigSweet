@@ -11,6 +11,7 @@ import android.view.Window;
 
 import com.graduation.yau.bigsweet.home.HomeFragment;
 import com.graduation.yau.bigsweet.person.PersonFragment;
+import com.graduation.yau.bigsweet.shop.ShopFragment;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.goToPersonFragment {
 

@@ -1,21 +1,37 @@
-package com.graduation.yau.bigsweet;
+package com.graduation.yau.bigsweet.shop;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.graduation.yau.bigsweet.GlideImageLoader;
+import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.home.PostAdapter;
+import com.graduation.yau.bigsweet.model.Post;
+import com.graduation.yau.bigsweet.model.Product;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+
 public class ShopFragment extends Fragment {
 
     private Banner mShopBanner;
+    private RecyclerView mProductRecyclerView;
+    private ProductAdapter mProductAdapter;
+    private ArrayList<Product> mProductList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -26,11 +42,16 @@ public class ShopFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initEvent(view);
+        initView(view);
+        initEvent();
     }
 
-    private void initEvent(View root) {
+    private void initView(View root) {
         mShopBanner = (Banner) root.findViewById(R.id.banner_shop_banner);
+        mProductRecyclerView = root.findViewById(R.id.product_shop_recyclerView);
+    }
+
+    private void initEvent() {
         //设置图片加载器
         mShopBanner.setImageLoader(new GlideImageLoader());
         //设置图片集合
@@ -41,5 +62,29 @@ public class ShopFragment extends Fragment {
         mShopBanner.setImages(imageList);
         //banner设置方法全部调用完毕时最后调用
         mShopBanner.start();
+
+        initData();
+        mProductAdapter = new ProductAdapter(getContext(), mProductList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        mProductRecyclerView.setLayoutManager(layoutManager);
+        layoutManager.setOrientation(OrientationHelper.VERTICAL);
+        mProductRecyclerView.setAdapter(mProductAdapter);
+    }
+
+    private void initData() {
+        BmobQuery<Product> productQuery = new BmobQuery<>();
+        productQuery.order("-sale");
+        productQuery.findObjects(new FindListener<Product>() {
+            @Override
+            public void done(List<Product> object, BmobException e) {
+                if (e == null) {
+                    mProductList.clear();
+                    mProductList.addAll(object);
+                    mProductAdapter.notifyDataSetChanged();
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
