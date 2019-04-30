@@ -196,4 +196,16 @@
     <string name="activity_product_detail_add_car">加入购物车</string>
     <string name="activity_product_detail_share">分享商品</string>
 
+    <string name="activity_edit_order_title">填写订单</string>
+    <string name="activity_edit_order_submit">提交订单</string>
+    <string name="activity_edit_order_phone">联系方式：</string>
+    <string name="activity_edit_order_address">收货地址：</string>
+    <string name="activity_edit_order_consignee">收货人：</string>
+    <string name="activity_edit_order_words">留言</string>
+    <string name="activity_edit_order_phone_hint">请填写联系方式</string>
+    <string name="activity_edit_order_address_hint">请填写收货地址</string>
+    <string name="activity_edit_order_consignee_hint">请填写收货人</string>
+    <string name="activity_edit_order_words_hint">请填写留言</string>
+
+
 </resources>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_separator_view">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/receive_msg_edit_order_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/consignee_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/activity_edit_order_consignee"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/consignee_edit_order_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="@string/activity_edit_order_consignee_hint"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/consignee_edit_order_textView"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/consignee_edit_order_textView" />
+
+        <TextView
+            android:id="@+id/phone_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/activity_edit_order_phone"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/consignee_edit_order_textView" />
+
+        <EditText
+            android:id="@+id/phone_edit_order_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="@string/activity_edit_order_phone_hint"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/phone_edit_order_textView"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/phone_edit_order_textView" />
+
+        <TextView
+            android:id="@+id/address_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/activity_edit_order_address"
+            android:textColor="@color/text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_edit_order_textView" />
+
+        <EditText
+            android:id="@+id/address_edit_order_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="@string/activity_edit_order_address_hint"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/address_edit_order_textView"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/address_edit_order_textView" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/receive_msg_edit_order_constraintLayout">
+
+        <ImageView
+            android:id="@+id/shop_avatar_edit_order_imageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_shop_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/shop_name_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/text_color"
+            app:layout_constraintBottom_toBottomOf="@id/shop_avatar_edit_order_imageView"
+            app:layout_constraintStart_toEndOf="@id/shop_avatar_edit_order_imageView"
+            app:layout_constraintTop_toTopOf="@id/shop_avatar_edit_order_imageView" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/product_edit_order_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/shop_avatar_edit_order_imageView">
+
+            <ImageView
+                android:id="@+id/picture_edit_order_imageView"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginStart="18dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/bg_shop_list_item"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_edit_order_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/picture_edit_order_imageView"
+                app:layout_constraintTop_toTopOf="@id/picture_edit_order_imageView" />
+
+            <TextView
+                android:id="@+id/price_edit_order_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="12dp"
+                android:textColor="#EA615B"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@id/picture_edit_order_imageView"
+                app:layout_constraintStart_toEndOf="@id/picture_edit_order_imageView" />
+
+            <TextView
+                android:id="@+id/sum_edit_order_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginEnd="12dp"
+                android:text="X 1"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@id/picture_edit_order_imageView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/words_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/activity_edit_order_words"
+            android:textColor="@color/text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_edit_order_constraintLayout" />
+
+        <EditText
+            android:id="@+id/words_edit_order_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="@string/activity_edit_order_words_hint"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/words_edit_order_textView"
+            app:layout_constraintStart_toEndOf="@id/words_edit_order_textView" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/foot_edit_order_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg_foot_post_detail"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/price_sum_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/submit_edit_order_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_post_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/activity_edit_order_submit"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -14,6 +14,7 @@ import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.model.Seller;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -124,6 +125,7 @@ public class ProductDetailActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.buy_product_detail_textView:
+                StartActivityUtil.goWithProduct(ProductDetailActivity.this, EditOrderActivity.class, mProduct);
                 break;
             case R.id.add_car_product_detail_textView:
                 break;

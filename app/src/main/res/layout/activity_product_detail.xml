@@ -129,7 +129,7 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/foot_post_detail_linearLayout"
+        android:id="@+id/foot_product_detail_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/bg_foot_post_detail"

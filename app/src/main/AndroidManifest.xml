@@ -45,6 +45,7 @@
         <activity android:name=".settings.ChangePasswordActivity" />
         <activity android:name=".PostDetailActivity" />
         <activity android:name=".shop.ProductDetailActivity" />
+        <activity android:name=".shop.EditOrderActivity" />
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
