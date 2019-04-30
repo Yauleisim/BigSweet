@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_item_shop_list_constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="130dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/picture_shop_list_imageView"
@@ -71,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:layout_marginStart="12dp"
-        android:text="详情"
+        android:text="@string/activity_shop_get_more"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/picture_shop_list_imageView" />

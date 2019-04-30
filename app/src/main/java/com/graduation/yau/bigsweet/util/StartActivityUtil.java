@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.graduation.yau.bigsweet.model.Post;
+import com.graduation.yau.bigsweet.model.Product;
 
 /**
  * Created by YAULEISIM on 2019/4/2.
@@ -34,6 +35,16 @@ public class StartActivityUtil {
         try {
             Intent mIntent = new Intent(fromActivity, toActivity);
             mIntent.putExtra("post", post);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void goWithProduct(Context fromActivity, Class toActivity, Product product) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("product", product);
             fromActivity.startActivity(mIntent);
         } catch (Exception e) {
             e.printStackTrace();

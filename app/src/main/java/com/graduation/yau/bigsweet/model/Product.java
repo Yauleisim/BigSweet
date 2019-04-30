@@ -8,6 +8,8 @@ import cn.bmob.v3.BmobObject;
 
 public class Product extends BmobObject {
 
+    private static final long serialVersionUID = -6033413672821407063L;
+
     private String title;
 
     private int price;
@@ -25,6 +27,26 @@ public class Product extends BmobObject {
     private String tagTwo;
 
     private String tagThree;
+
+    private String sellerId;
+
+    private String describe;
+
+    public String getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
 
     public String getTagOne() {
         return tagOne;

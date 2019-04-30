@@ -174,4 +174,26 @@
     <string name="toast_permission_write">请授予相机和读写权限</string>
     <string name="toast_permission_error">设备没有sdcard！</string>
 
+    <string name="activity_shop_bake">烘培</string>
+    <string name="activity_shop_sugar">糖水</string>
+    <string name="activity_shop_fruit">水果</string>
+    <string name="activity_shop_drink">饮品</string>
+    <string name="activity_shop_snack">零食</string>
+    <string name="activity_shop_seasoning">调料</string>
+    <string name="activity_shop_box">礼盒</string>
+    <string name="activity_shop_utensils">器皿</string>
+    <string name="activity_shop_recommend">为你推荐</string>
+    <string name="activity_shop_get_more">详情</string>
+    <string name="activity_shop_sale">已售 </string>
+    <string name="activity_shop_price">￥ </string>
+    <string name="activity_shop_tag"> | </string>
+
+    <string name="activity_product_detail_title">商品详情</string>
+    <string name="activity_product_detail_sale">在售商品</string>
+    <string name="activity_product_detail_sum">件</string>
+    <string name="activity_product_detail_shop">进店</string>
+    <string name="activity_product_detail_buy">立即购买</string>
+    <string name="activity_product_detail_add_car">加入购物车</string>
+    <string name="activity_product_detail_share">分享商品</string>
+
 </resources>

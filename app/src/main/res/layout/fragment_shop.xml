@@ -128,7 +128,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="烘培"
+                        android:text="@string/activity_shop_bake"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +155,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="糖水"
+                        android:text="@string/activity_shop_sugar"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +182,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="水果"
+                        android:text="@string/activity_shop_fruit"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -209,7 +209,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="饮品"
+                        android:text="@string/activity_shop_drink"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -236,7 +236,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="零食"
+                        android:text="@string/activity_shop_snack"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -263,7 +263,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="调料"
+                        android:text="@string/activity_shop_seasoning"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -290,7 +290,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="礼盒"
+                        android:text="@string/activity_shop_box"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -317,7 +317,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="器皿"
+                        android:text="@string/activity_shop_utensils"
                         android:textColor="#1C1C1A"
                         android:textSize="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -341,7 +341,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="为你推荐"
+                android:text="@string/activity_shop_recommend"
                 android:textColor="@color/text_color"
                 android:textSize="22dp"
                 android:textStyle="bold" />

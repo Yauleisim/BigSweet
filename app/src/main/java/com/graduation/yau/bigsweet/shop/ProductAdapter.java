@@ -2,6 +2,7 @@ package com.graduation.yau.bigsweet.shop;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.graduation.yau.bigsweet.PostDetailActivity;
 import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.util.ConvertUtil;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 import java.util.ArrayList;
 
@@ -38,13 +41,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Product product = mProductList.get(i);
+        final Product product = mProductList.get(i);
 
-        viewHolder.mPriceTextView.setText("$ " + ConvertUtil.intToString(product.getPrice()));
-        viewHolder.mSaleTextView.setText("已售 " + ConvertUtil.intToString(product.getSale()));
-        viewHolder.mTagTextView.setText(product.getTagOne() + " | " + product.getTagTwo() + " | " + product.getTagThree());
+        viewHolder.mPriceTextView.setText(mContext.getString(R.string.activity_shop_price)
+                + ConvertUtil.intToString(product.getPrice()));
+        viewHolder.mSaleTextView.setText(mContext.getString(R.string.activity_shop_sale)
+                + ConvertUtil.intToString(product.getSale()));
+        viewHolder.mTagTextView.setText(product.getTagOne()
+                + mContext.getString(R.string.activity_shop_tag)
+                + product.getTagTwo()
+                + mContext.getString(R.string.activity_shop_tag)
+                + product.getTagThree());
         viewHolder.mTitleTextView.setText(product.getTitle());
         Glide.with(mContext).load(product.getPictureOneUrl()).into(viewHolder.mPicImageView);
+
+        viewHolder.mRootConstraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StartActivityUtil.goWithProduct(mContext, ProductDetailActivity.class, product);
+            }
+        });
 
     }
 
@@ -60,6 +76,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         TextView mTitleTextView, mPriceTextView, mSaleTextView, mTagTextView;
         ImageView mPicImageView;
+        ConstraintLayout mRootConstraintLayout;
 
         ViewHolder(View v) {
             super(v);
@@ -68,6 +85,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             mSaleTextView = v.findViewById(R.id.sale_shop_list_textView);
             mPicImageView = v.findViewById(R.id.picture_shop_list_imageView);
             mTagTextView = v.findViewById(R.id.tag_shop_list_textView);
+            mRootConstraintLayout = v.findViewById(R.id.root_item_shop_list_constraintLayout);
         }
     }
 }
