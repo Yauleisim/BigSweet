@@ -20,6 +20,17 @@ public class Order extends BmobObject {
 
     private String productId;
 
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
     public String getConsignee() {
         return consignee;
     }

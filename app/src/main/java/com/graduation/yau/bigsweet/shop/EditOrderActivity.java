@@ -14,6 +14,7 @@ import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.model.Order;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.model.Seller;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.util.ConvertUtil;
 import com.graduation.yau.bigsweet.util.TextUtil;
 import com.graduation.yau.bigsweet.util.ToastUtil;
@@ -21,6 +22,7 @@ import com.graduation.yau.bigsweet.util.ToastUtil;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
@@ -36,7 +38,7 @@ public class EditOrderActivity extends BaseActivity {
     private EditText mConsigneeEditText, mPhoneEditText, mAddressEditText, mWordsEditText;
     private TextView mSubmitTextView, mPriceSumTextView, mShopNameTextView, mTitleTextView, mSumTextView, mPriceTextView, mAddTextView, mReduceTextView;
     private ImageView mPicImageView;
-    private int sum = 1;
+    private int num = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +81,10 @@ public class EditOrderActivity extends BaseActivity {
 
         mTitleTextView.setText(mProduct.getTitle());
         mPriceTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice());
-        mSumTextView.setText(ConvertUtil.intToString(sum));
+        mSumTextView.setText(ConvertUtil.intToString(num));
         Glide.with(EditOrderActivity.this).load(mProduct.getPictureOneUrl()).into(mPicImageView);
 
-        mPriceSumTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice() * sum);
+        mPriceSumTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice() * num);
 
         BmobQuery<Seller> sellerBmobQuery = new BmobQuery<>();
         sellerBmobQuery.addWhereEqualTo("objectId", mProduct.getSellerId());
@@ -110,15 +112,15 @@ public class EditOrderActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.add_edit_order_textView:
-                mSumTextView.setText(ConvertUtil.intToString(++sum));
-                mPriceSumTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice() * sum);
+                mSumTextView.setText(ConvertUtil.intToString(++num));
+                mPriceSumTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice() * num);
                 break;
             case R.id.reduce_edit_order_textView:
-                if (sum == 1) {
+                if (num == 1) {
                     ToastUtil.show(this, R.string.activity_edit_order_error, Toast.LENGTH_SHORT, false);
                 } else {
-                    mSumTextView.setText(ConvertUtil.intToString(--sum));
-                    mPriceSumTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice() * sum);
+                    mSumTextView.setText(ConvertUtil.intToString(--num));
+                    mPriceSumTextView.setText(getString(R.string.activity_shop_price) + mProduct.getPrice() * num);
                 }
                 break;
             case R.id.submit_edit_order_textView:
@@ -147,7 +149,8 @@ public class EditOrderActivity extends BaseActivity {
         if (!TextUtil.isEmpty(words)) {
             order.setWords(words);
         }
-        order.setSum(ConvertUtil.stringToInt(mSumTextView.getText().toString()));
+        order.setSum(mProduct.getPrice() * num);
+        order.setUserId(BmobUser.getCurrentUser(User.class).getObjectId());
         order.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
