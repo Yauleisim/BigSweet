@@ -26,6 +26,7 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by YAULEISIM on 2019/4/30.
@@ -155,7 +156,17 @@ public class EditOrderActivity extends BaseActivity {
             @Override
             public void done(String s, BmobException e) {
                 if (e == null) {
-                    ToastUtil.show(EditOrderActivity.this, R.string.activity_edit_order_success, Toast.LENGTH_SHORT, true);
+                    mProduct.addSale(num);
+                    mProduct.update(new UpdateListener() {
+                        @Override
+                        public void done(BmobException e) {
+                            if (e == null) {
+                                ToastUtil.show(EditOrderActivity.this, R.string.activity_edit_order_success, Toast.LENGTH_SHORT, true);
+                            } else {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
                     // todo 可能要写一个订单完成的页面
                     finish();
                 } else {

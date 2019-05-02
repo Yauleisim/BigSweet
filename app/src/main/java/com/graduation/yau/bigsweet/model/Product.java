@@ -96,6 +96,10 @@ public class Product extends BmobObject {
         this.sale = sale;
     }
 
+    public void addSale(int add) {
+        sale += add;
+    }
+
     public String getPictureOneUrl() {
         return pictureOneUrl;
     }
