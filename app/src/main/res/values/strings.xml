@@ -206,6 +206,9 @@
     <string name="activity_edit_order_address_hint">请填写收货地址</string>
     <string name="activity_edit_order_consignee_hint">请填写收货人</string>
     <string name="activity_edit_order_words_hint">请填写留言</string>
-
+    <string name="activity_edit_order_error">不能再少了！</string>
+    <string name="activity_edit_order_success">提交订单成功</string>
+    <string name="activity_edit_order_fail">提交订单失败,请稍后重试</string>
+    <string name="activity_edit_order_null">请填写完整的收货信息</string>
 
 </resources>
