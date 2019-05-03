@@ -165,24 +165,6 @@
             android:text="@string/activity_product_detail_add_car"
             android:textSize="12dp" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/bg_separator_view" />
-
-        <TextView
-            android:id="@+id/share_product_detail_textView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:text="@string/activity_product_detail_share"
-            android:textSize="12dp" />
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

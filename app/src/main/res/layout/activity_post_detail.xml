@@ -275,41 +275,6 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/bg_separator_view" />
-
-        <LinearLayout
-            android:id="@+id/share_post_detail_constraintLayout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/share_post_detail_imageView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:padding="3dp"
-                android:src="@drawable/ic_share_count" />
-
-            <TextView
-                android:id="@+id/share_count_post_detail_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/activity_post_detail_share"
-                android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/share_post_detail_imageView"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

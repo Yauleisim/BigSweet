@@ -31,7 +31,7 @@ import cn.bmob.v3.listener.FindListener;
 public class ProductDetailActivity extends BaseActivity {
 
     private Product mProduct;
-    private TextView mPriceTextView, mTitleTextView, mDescribeTextView, mSellerTextView, mProductSumTextView, mBuyTextView, mAddCarTextView, mShareTextView;
+    private TextView mPriceTextView, mTitleTextView, mDescribeTextView, mSellerTextView, mProductSumTextView, mBuyTextView, mAddCarTextView;
     private Banner mPicBanner;
     private Seller mSeller;
     private ImageView mSellerAvatarImageView;
@@ -60,7 +60,6 @@ public class ProductDetailActivity extends BaseActivity {
         mSellerAvatarImageView = findViewById(R.id.avatar_product_detail_imageView);
         mBuyTextView = findViewById(R.id.buy_product_detail_textView);
         mAddCarTextView = findViewById(R.id.add_car_product_detail_textView);
-        mShareTextView = findViewById(R.id.share_product_detail_textView);
         mGoToShopConstraintLayout = findViewById(R.id.go_to_shop_product_detail_constraintLayout);
     }
 
@@ -116,7 +115,6 @@ public class ProductDetailActivity extends BaseActivity {
 
         mBuyTextView.setOnClickListener(this);
         mAddCarTextView.setOnClickListener(this);
-        mShareTextView.setOnClickListener(this);
         mGoToShopConstraintLayout.setOnClickListener(this);
     }
 
@@ -128,8 +126,6 @@ public class ProductDetailActivity extends BaseActivity {
                 StartActivityUtil.goWithProduct(ProductDetailActivity.this, EditOrderActivity.class, mProduct);
                 break;
             case R.id.add_car_product_detail_textView:
-                break;
-            case R.id.share_product_detail_textView:
                 break;
             case R.id.go_to_shop_product_detail_constraintLayout:
                 break;
