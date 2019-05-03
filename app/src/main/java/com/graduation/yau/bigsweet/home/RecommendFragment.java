@@ -18,8 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SQLQueryListener;
 
 /**
  * Created by YAULEISIM on 2019/4/10.
@@ -61,19 +62,16 @@ public class RecommendFragment extends Fragment {
     }
 
     protected void initData() {
-        BmobQuery<Post> orderQuery = new BmobQuery<>();
-        orderQuery.order("-likeCount");
-        BmobQuery<Post> publicQuery = new BmobQuery<>();
-        publicQuery.addWhereEqualTo("isPublic", true);
-        List<BmobQuery<Post>> andQuerys = new ArrayList<BmobQuery<Post>>();
-        andQuerys.add(orderQuery);
-        andQuerys.add(publicQuery);
         BmobQuery<Post> postBmobQuery = new BmobQuery<>();
-        postBmobQuery.and(andQuerys);
-        postBmobQuery.findObjects(new FindListener<Post>() {
+        String bql = "select * from Post where isPublic = ? order by -likeCount";
+        postBmobQuery.setSQL(bql);
+        postBmobQuery.setPreparedParams(new Boolean[]{true});
+
+        postBmobQuery.doSQLQuery(new SQLQueryListener<Post>() {
             @Override
-            public void done(List<Post> object, BmobException e) {
+            public void done(BmobQueryResult<Post> bmobQueryResult, BmobException e) {
                 if (e == null) {
+                    List<Post> object = (List<Post>) bmobQueryResult.getResults();
                     mPostList.clear();
                     mPostList.addAll(object);
                     mPostRecommendAdapter.notifyDataSetChanged();
