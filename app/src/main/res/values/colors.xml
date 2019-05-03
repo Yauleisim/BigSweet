@@ -8,6 +8,7 @@
 
     <color name="bottom_navigation_unchecked">#757575</color>
     <color name="text_color">#171717</color>
+    <color name="default_text_color">#333333</color>
     <color name="bg_separator_view">#ECECEC</color>
     <color name="bg_separator_line">#F1F1F1</color>
     <color name="bg_foot_post_detail">#FAFAFA</color>

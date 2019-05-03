@@ -115,7 +115,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/bake_shop_imageView"
@@ -143,7 +144,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/sugar_shop_imageView"
@@ -171,7 +173,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/fruit_shop_imageView"
@@ -199,7 +202,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/drink_shop_imageView"
@@ -227,7 +231,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/snack_shop_imageView"
@@ -255,7 +260,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/seasoning_shop_imageView"
@@ -283,7 +289,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/box_shop_imageView"
@@ -311,7 +318,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginBottom="24dp">
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/utensils_shop_imageView"

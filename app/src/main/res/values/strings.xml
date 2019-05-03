@@ -212,6 +212,7 @@
     <string name="activity_edit_order_null">请填写完整的收货信息</string>
 
     <string name="activity_classification_title">分类商品</string>
+    <string name="activity_classification_dialog_title">选择排序方式</string>
 
     <string name="fragment_order_detail">查看详情</string>
 
