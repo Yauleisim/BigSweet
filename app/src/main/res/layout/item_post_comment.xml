@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:padding="12dp">
+    android:paddingTop="12dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
 
     <ImageView
         android:id="@+id/avatar_item_post_comment_imageView"
@@ -35,11 +37,13 @@
         app:layout_constraintTop_toBottomOf="@id/name_item_post_comment_textView" />
 
     <TextView
+        android:id="@+id/time_item_post_comment_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:text="4-3 19:35"
+        android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@id/avatar_item_post_comment_imageView"
         app:layout_constraintTop_toBottomOf="@id/content_item_post_comment_textView" />
 
@@ -50,6 +54,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginTop="12dp"
         android:src="@drawable/ic_like_comment"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/like_count_item_post_comment_imageView"
         app:layout_constraintTop_toBottomOf="@id/content_item_post_comment_textView" />
 
@@ -59,7 +64,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="0"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content_item_post_comment_textView" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/time_item_post_comment_textView"
+        android:background="@color/bg_separator_line"/>
 
 </android.support.constraint.ConstraintLayout>

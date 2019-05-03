@@ -1,8 +1,16 @@
 package com.graduation.yau.bigsweet;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,12 +20,16 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.graduation.yau.bigsweet.base.BaseActivity;
+import com.graduation.yau.bigsweet.home.CommentAdapter;
 import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.util.TextUtil;
 import com.graduation.yau.bigsweet.util.ToastUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -36,8 +48,11 @@ public class PostDetailActivity extends BaseActivity {
     private ImageView mPosterAvatarImageView, mPictureOneImageView, mPictureTwoImageView, mPictureThreeImageView, mLikeImageView;
     private TextView mPosterNameTextView, mContentTextView, mLabelTextView, mPostTimeTextView, mFollowTextView, mLikeTextView;
     private ConstraintLayout mLabelConstraintLayout;
-    private LinearLayout mPictureLinearLayout, mLikeLinearLayout;
+    private LinearLayout mPictureLinearLayout, mLikeLinearLayout, mCommentLinearLayout;
     private User currentUser;
+    private RecyclerView mCommentRecyclerView;
+    private CommentAdapter mCommentAdapter;
+    private List<String[]> mCommentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +82,21 @@ public class PostDetailActivity extends BaseActivity {
         mLikeLinearLayout = findViewById(R.id.like_post_detail_linearLayout);
         mLikeImageView = findViewById(R.id.like_post_detail_imageView);
         mLikeTextView = findViewById(R.id.like_count_post_detail_textView);
+        mCommentLinearLayout = findViewById(R.id.comment_post_detail_linearLayout);
+        mCommentRecyclerView = findViewById(R.id.comment_post_detail_recyclerView);
     }
 
     @Override
     protected void initEvent() {
         super.initEvent();
+        mCommentLinearLayout.setOnClickListener(this);
+
+        mCommentAdapter = new CommentAdapter(this, mPost.getCommentList());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mCommentRecyclerView.setLayoutManager(layoutManager);
+        layoutManager.setOrientation(OrientationHelper.VERTICAL);
+        mCommentRecyclerView.setAdapter(mCommentAdapter);
+
         currentUser = BmobUser.getCurrentUser(User.class);
         mLikeLinearLayout.setOnClickListener(this);
         if (isCollect()) {
@@ -160,6 +185,9 @@ public class PostDetailActivity extends BaseActivity {
                 } else {
                     doCollect();
                 }
+                break;
+            case R.id.comment_post_detail_linearLayout:
+                showInputDialog(this, R.string.activity_post_detail_comment);
                 break;
             default:
                 break;
@@ -283,4 +311,54 @@ public class PostDetailActivity extends BaseActivity {
             }
         });
     }
+
+    private void doComment(String comment) {
+        mPost.addAComment(comment, currentUser.getObjectId(), getStringDate());
+        mPost.update(new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_comment_success, Toast.LENGTH_SHORT, true);
+                    // 刷新列表
+                } else {
+                    e.printStackTrace();
+                    ToastUtil.show(PostDetailActivity.this, R.string.activity_post_detail_comment_fail, Toast.LENGTH_SHORT, false);
+                }
+            }
+        });
+    }
+
+    private void showInputDialog(final Context context, int title) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.dialog_input_topic, null);
+        final EditText editText = view.findViewById(R.id.topic_dialog_input_topic_editText);
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setView(view)
+                .setPositiveButton(R.string.dialog_normal_positive, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String result = editText.getText().toString();
+                        if (!TextUtil.isEmpty(result)) {
+                            doComment(result);
+                        }
+                    }
+                })
+                .setNegativeButton(R.string.dialog_normal_negative, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        AlertDialog inputDialog = dialogBuilder.create();
+        inputDialog.show();
+        inputDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        inputDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(context.getResources().getColor(R.color.colorPrimary));
+    }
+
+    public static String getStringDate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
+        return formatter.format(new Date());
+    }
+
 }

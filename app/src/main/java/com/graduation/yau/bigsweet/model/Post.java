@@ -1,5 +1,8 @@
 package com.graduation.yau.bigsweet.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -28,6 +31,21 @@ public class Post extends BmobObject {
     private int shareCount;
 
     private int commentCount;
+
+    private List<String[]> commentList = new ArrayList<>();
+
+    public List<String[]> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<String[]> commentList) {
+        this.commentList = commentList;
+    }
+
+    public void addAComment(String comment, String userId, String time) {
+        commentList.add(new String[]{comment, userId, time});
+        commentCount++;
+    }
 
     public int getLikeCount() {
         return likeCount;

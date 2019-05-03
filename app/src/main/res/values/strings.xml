@@ -166,6 +166,9 @@
     <string name="activity_post_detail_cancel_collect_fail">取消收藏失败</string>
     <string name="activity_post_detail_cancel_collect_success">取消收藏成功</string>
     <string name="activity_post_detail_cancel_collect_error">悄悄地取消收藏了</string>
+    <string name="activity_post_detail_comment_fail">评论失败</string>
+    <string name="activity_post_detail_comment_success">评论成功</string>
+
 
     <string name="dialog_normal_positive">确定</string>
     <string name="dialog_normal_negative">取消</string>
