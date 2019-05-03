@@ -124,6 +124,10 @@
     <string name="activity_feedback_content">请在此输入您的意见反馈</string>
     <string name="activity_feedback_email">请输入您的邮箱方便工作人员后续联系</string>
     <string name="activity_feedback_submit">提交</string>
+    <string name="activity_feedback_error">请将信息填写完整</string>
+    <string name="activity_feedback_email_error">邮箱格式不正确</string>
+    <string name="activity_feedback_success">提交成功</string>
+    <string name="activity_feedback_fail">提交失败，请稍后重试</string>
 
     <string name="activity_user_msg_title">个人资料</string>
     <string name="activity_user_msg_name">昵称</string>
