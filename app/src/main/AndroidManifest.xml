@@ -47,6 +47,7 @@
         <activity android:name=".shop.ProductDetailActivity" />
         <activity android:name=".shop.EditOrderActivity" />
         <activity android:name=".shop.ClassificationActivity" />
+        <activity android:name=".settings.IntroduceActivity" />
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"

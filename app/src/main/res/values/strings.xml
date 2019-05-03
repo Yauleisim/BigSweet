@@ -143,7 +143,7 @@
 
     <string name="activity_about_title">关于一点甜</string>
     <string name="activity_about_introduce">功能介绍</string>
-    <string name="activity_about_check">检查新版本</string>
+    <string name="activity_about_use">使用手册</string>
     <string name="activity_about_version">Version 1.0.1</string>
 
     <string name="activity_post_detail_title">正文</string>

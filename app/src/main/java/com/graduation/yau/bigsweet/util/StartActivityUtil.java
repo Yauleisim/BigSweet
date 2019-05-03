@@ -60,4 +60,14 @@ public class StartActivityUtil {
             e.printStackTrace();
         }
     }
+
+    public static void goWithTitle(Context fromActivity, Class toActivity, String title) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("title", title);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
