@@ -12,33 +12,18 @@
         android:paddingTop="10dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/location_shop_constraintLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/release_shop_imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="5dp"
+            android:src="@drawable/ic_release_product"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/search_shop_constraintLayout"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/location_shop_imageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_shop_location"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="广州市"
-                android:textColor="@color/text_color"
-                android:textSize="12dp"
-                app:layout_constraintTop_toBottomOf="@id/location_shop_imageView" />
-        </android.support.constraint.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/search_shop_constraintLayout"
@@ -49,7 +34,7 @@
             android:padding="10dp"
             app:layout_constraintEnd_toStartOf="@id/car_shop_imageView"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/location_shop_constraintLayout">
+            app:layout_constraintStart_toEndOf="@id/release_shop_imageView">
 
             <ImageView
                 android:id="@+id/search_shop_imageView"
@@ -76,6 +61,7 @@
             android:layout_height="30dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:background="?android:attr/selectableItemBackground"
             android:padding="5dp"
             android:src="@drawable/ic_shop_car"
             app:layout_constraintBottom_toBottomOf="parent"
