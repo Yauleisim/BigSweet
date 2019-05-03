@@ -3,6 +3,7 @@ package com.graduation.yau.bigsweet.shop;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,8 @@ import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.home.PostAdapter;
 import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.Product;
+import com.graduation.yau.bigsweet.util.ClassifyUtil;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -26,12 +29,13 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-public class ShopFragment extends Fragment {
+public class ShopFragment extends Fragment implements View.OnClickListener {
 
     private Banner mShopBanner;
     private RecyclerView mProductRecyclerView;
     private ProductAdapter mProductAdapter;
     private ArrayList<Product> mProductList = new ArrayList<>();
+    private ConstraintLayout mBakeConstraintLayout, mSugarConstraintLayout, mFruitConstraintLayout, mDrinkConstraintLayout, mSnackConstraintLayout, mSeasoningConstraintLayout, mBoxConstraintLayout, mUtensilsConstraintLayout;
 
     @Nullable
     @Override
@@ -49,6 +53,14 @@ public class ShopFragment extends Fragment {
     private void initView(View root) {
         mShopBanner = (Banner) root.findViewById(R.id.banner_shop_banner);
         mProductRecyclerView = root.findViewById(R.id.product_shop_recyclerView);
+        mBakeConstraintLayout = root.findViewById(R.id.bake_shop_constraintLayout);
+        mSugarConstraintLayout = root.findViewById(R.id.sugar_shop_constraintLayout);
+        mFruitConstraintLayout = root.findViewById(R.id.fruit_shop_constraintLayout);
+        mDrinkConstraintLayout = root.findViewById(R.id.drink_shop_constraintLayout);
+        mSeasoningConstraintLayout = root.findViewById(R.id.seasoning_shop_constraintLayout);
+        mSnackConstraintLayout = root.findViewById(R.id.snack_shop_constraintLayout);
+        mBoxConstraintLayout = root.findViewById(R.id.box_shop_constraintLayout);
+        mUtensilsConstraintLayout = root.findViewById(R.id.utensils_shop_constraintLayout);
     }
 
     private void initEvent() {
@@ -69,6 +81,15 @@ public class ShopFragment extends Fragment {
         mProductRecyclerView.setLayoutManager(layoutManager);
         layoutManager.setOrientation(OrientationHelper.VERTICAL);
         mProductRecyclerView.setAdapter(mProductAdapter);
+
+        mBakeConstraintLayout.setOnClickListener(this);
+        mSugarConstraintLayout.setOnClickListener(this);
+        mFruitConstraintLayout.setOnClickListener(this);
+        mDrinkConstraintLayout.setOnClickListener(this);
+        mSeasoningConstraintLayout.setOnClickListener(this);
+        mSnackConstraintLayout.setOnClickListener(this);
+        mBoxConstraintLayout.setOnClickListener(this);
+        mUtensilsConstraintLayout.setOnClickListener(this);
     }
 
     private void initData() {
@@ -86,5 +107,37 @@ public class ShopFragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bake_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_BAKE);
+                break;
+            case R.id.sugar_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_SUGAR);
+                break;
+            case R.id.fruit_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_FRUIT);
+                break;
+            case R.id.drink_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_DRINK);
+                break;
+            case R.id.seasoning_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_SEASONING);
+                break;
+            case R.id.snack_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_SNACK);
+                break;
+            case R.id.box_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_BOX);
+                break;
+            case R.id.utensils_shop_constraintLayout:
+                StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_UTENSILS);
+                break;
+            default:
+                break;
+        }
     }
 }

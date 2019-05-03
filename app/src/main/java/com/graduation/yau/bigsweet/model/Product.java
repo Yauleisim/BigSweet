@@ -32,6 +32,16 @@ public class Product extends BmobObject {
 
     private String describe;
 
+    private String classification;
+
+    public String getClassification() {
+        return classification;
+    }
+
+    public void setClassification(String classification) {
+        this.classification = classification;
+    }
+
     public String getSellerId() {
         return sellerId;
     }

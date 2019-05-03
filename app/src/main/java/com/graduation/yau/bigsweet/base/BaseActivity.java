@@ -74,6 +74,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         titleNameTextView.setText(titleName);
     }
 
+    protected void setTitleName(String titleName) {
+        TextView titleNameTextView = findViewById(R.id.name_title_common_textView);
+        titleNameTextView.setText(titleName);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

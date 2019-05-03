@@ -41,6 +41,16 @@ public class StartActivityUtil {
         }
     }
 
+    public static void goWithClassification(Context fromActivity, Class toActivity, String classification) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("classification", classification);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void goWithProduct(Context fromActivity, Class toActivity, Product product) {
         try {
             Intent mIntent = new Intent(fromActivity, toActivity);
