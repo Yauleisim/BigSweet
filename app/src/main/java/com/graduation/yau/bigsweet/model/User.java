@@ -19,11 +19,7 @@ public class User extends BmobUser {
 
     private int followCount;
 
-    private int fansCount;
-
     private List<String> followList = new ArrayList<>();
-
-    private List<String> fansList = new ArrayList<>();
 
     public List<String> getLikeList() {
         return likeList;
@@ -61,19 +57,6 @@ public class User extends BmobUser {
         followCount--;
     }
 
-    public List<String> getFansList() {
-        return fansList;
-    }
-
-    public void setFansList(List<String> fansList) {
-        this.fansList = fansList;
-    }
-
-    public void addAFans(String fansUserId) {
-        fansList.add(fansUserId);
-        fansCount++;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -98,13 +81,6 @@ public class User extends BmobUser {
         this.followCount = followCount;
     }
 
-    public int getFansCount() {
-        return fansCount;
-    }
-
-    public void setFansCount(int fansCount) {
-        this.fansCount = fansCount;
-    }
 
     public String getSignature() {
         return signature;

@@ -162,7 +162,7 @@
             app:layout_constraintStart_toEndOf="@id/follow_person_constraintLayout">
 
             <TextView
-                android:id="@+id/fans_count_person_textView"
+                android:id="@+id/get_like_count_person_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -174,9 +174,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/activity_person_fans"
+                android:text="@string/activity_person_get_like"
                 android:textColor="@color/text_color"
-                app:layout_constraintTop_toBottomOf="@id/fans_count_person_textView" />
+                app:layout_constraintTop_toBottomOf="@id/get_like_count_person_textView" />
 
         </android.support.constraint.ConstraintLayout>
 

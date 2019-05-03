@@ -17,6 +17,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.graduation.yau.bigsweet.PostActivity;
 import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.settings.SettingsActivity;
 import com.graduation.yau.bigsweet.settings.UserMessageActivity;
@@ -26,14 +27,18 @@ import com.graduation.yau.bigsweet.util.TextUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobQueryResult;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SQLQueryListener;
 
 public class PersonFragment extends Fragment implements View.OnClickListener {
 
     private ViewPager mPersonShiftViewPager;
     private PersonShiftViewPagerAdapter mPersonShiftViewPagerAdapter;
     private TabLayout mPersonTabLayout;
-    private TextView mNameTextView, mSignatureTextView, mFollowTextView, mFansTextView;
+    private TextView mNameTextView, mSignatureTextView, mFollowTextView, mGetLikeTextView;
     private ImageView mAvatarImageView;
 
     @Nullable
@@ -65,7 +70,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
             mSignatureTextView.setText(signature);
         }
         mFollowTextView.setText(String.valueOf(currentUser.getFollowCount()));
-        mFansTextView.setText(String.valueOf(currentUser.getFansCount()));
+
+        computerGetLikeCount();
+
         String avatarUrl = currentUser.getAvatarUrl();
         if (TextUtil.isEmpty(avatarUrl)) {
             Glide.with(this).load(R.mipmap.ic_person_avatar).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mAvatarImageView);
@@ -81,7 +88,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         mNameTextView = root.findViewById(R.id.name_person_textView);
         mSignatureTextView = root.findViewById(R.id.signature_person_textView);
         mFollowTextView = root.findViewById(R.id.follow_count_person_textView);
-        mFansTextView = root.findViewById(R.id.fans_count_person_textView);
+        mGetLikeTextView = root.findViewById(R.id.get_like_count_person_textView);
         mAvatarImageView = root.findViewById(R.id.avatar_person_imageView);
     }
 
@@ -117,5 +124,23 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
             default:
                 break;
         }
+    }
+
+    private void computerGetLikeCount() {
+        BmobQuery<Post> postBmobQuery = new BmobQuery<>();
+        String bql = "select * from Post where userId = ?";
+        postBmobQuery.setSQL(bql);
+        postBmobQuery.setPreparedParams(new String[]{BmobUser.getCurrentUser(User.class).getObjectId()});
+        postBmobQuery.doSQLQuery(new SQLQueryListener<Post>() {
+            @Override
+            public void done(BmobQueryResult<Post> bmobQueryResult, BmobException e) {
+                List<Post> mPostList = bmobQueryResult.getResults();
+                int mGetLikeCount = 0;
+                for (Post post : mPostList) {
+                    mGetLikeCount += post.getLikeCount();
+                }
+                mGetLikeTextView.setText(String.valueOf(mGetLikeCount));
+            }
+        });
     }
 }
