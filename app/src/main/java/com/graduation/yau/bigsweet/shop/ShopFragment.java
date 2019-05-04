@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import com.graduation.yau.bigsweet.GlideImageLoader;
 import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.home.HomeFragment;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.util.ClassifyUtil;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
@@ -34,7 +35,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     private ProductAdapter mProductAdapter;
     private ArrayList<Product> mProductList = new ArrayList<>();
     private ConstraintLayout mBakeConstraintLayout, mSugarConstraintLayout, mFruitConstraintLayout, mDrinkConstraintLayout, mSnackConstraintLayout, mSeasoningConstraintLayout, mBoxConstraintLayout, mUtensilsConstraintLayout;
-    private ImageView mReleaseImageView, mShopCarImageView;
+    private ImageView mReleaseImageView, mMeImageView;
 
     @Nullable
     @Override
@@ -61,7 +62,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
         mBoxConstraintLayout = root.findViewById(R.id.box_shop_constraintLayout);
         mUtensilsConstraintLayout = root.findViewById(R.id.utensils_shop_constraintLayout);
         mReleaseImageView = root.findViewById(R.id.release_shop_imageView);
-        mShopCarImageView = root.findViewById(R.id.car_shop_imageView);
+        mMeImageView = root.findViewById(R.id.me_shop_imageView);
     }
 
     private void initEvent() {
@@ -93,7 +94,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
         mUtensilsConstraintLayout.setOnClickListener(this);
 
         mReleaseImageView.setOnClickListener(this);
-        mShopCarImageView.setOnClickListener(this);
+        mMeImageView.setOnClickListener(this);
     }
 
     private void initData() {
@@ -140,8 +141,11 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
             case R.id.utensils_shop_constraintLayout:
                 StartActivityUtil.goWithClassification(getActivity(), ClassificationActivity.class, ClassifyUtil.CLASSIFICATION_UTENSILS);
                 break;
-            case R.id.car_shop_imageView:
-                // 购物车页
+            case R.id.me_shop_imageView:
+                // 个人页
+                if (getActivity() instanceof HomeFragment.goToPersonFragment) {
+                    ((HomeFragment.goToPersonFragment) getActivity()).go();
+                }
                 break;
             case R.id.release_shop_imageView:
                 // 发布商品页

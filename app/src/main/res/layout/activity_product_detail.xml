@@ -128,43 +128,56 @@
 
     </ScrollView>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/foot_product_detail_linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="@color/bg_foot_post_detail"
-        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/shop_product_detail_constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/shop_product_detail_imageView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_go_shop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="店铺"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/shop_product_detail_imageView"
+                app:layout_constraintTop_toBottomOf="@id/shop_product_detail_imageView" />
+
+        </android.support.constraint.ConstraintLayout>
+
         <TextView
             android:id="@+id/buy_product_detail_textView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_post_button"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
+            android:padding="10dp"
             android:text="@string/activity_product_detail_buy"
-            android:textSize="12dp" />
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/bg_separator_view" />
-
-        <TextView
-            android:id="@+id/add_car_product_detail_textView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:text="@string/activity_product_detail_add_car"
-            android:textSize="12dp" />
-
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

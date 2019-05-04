@@ -31,11 +31,11 @@ import cn.bmob.v3.listener.FindListener;
 public class ProductDetailActivity extends BaseActivity {
 
     private Product mProduct;
-    private TextView mPriceTextView, mTitleTextView, mDescribeTextView, mSellerTextView, mProductSumTextView, mBuyTextView, mAddCarTextView;
+    private TextView mPriceTextView, mTitleTextView, mDescribeTextView, mSellerTextView, mProductSumTextView, mBuyTextView;
     private Banner mPicBanner;
     private Seller mSeller;
     private ImageView mSellerAvatarImageView;
-    private ConstraintLayout mGoToShopConstraintLayout;
+    private ConstraintLayout mGoToShopConstraintLayout, mShopConstraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +59,8 @@ public class ProductDetailActivity extends BaseActivity {
         mPicBanner = findViewById(R.id.banner_product_detail_banner);
         mSellerAvatarImageView = findViewById(R.id.avatar_product_detail_imageView);
         mBuyTextView = findViewById(R.id.buy_product_detail_textView);
-        mAddCarTextView = findViewById(R.id.add_car_product_detail_textView);
         mGoToShopConstraintLayout = findViewById(R.id.go_to_shop_product_detail_constraintLayout);
+        mShopConstraintLayout = findViewById(R.id.shop_product_detail_constraintLayout);
     }
 
     @Override
@@ -114,8 +114,8 @@ public class ProductDetailActivity extends BaseActivity {
         });
 
         mBuyTextView.setOnClickListener(this);
-        mAddCarTextView.setOnClickListener(this);
         mGoToShopConstraintLayout.setOnClickListener(this);
+        mShopConstraintLayout.setOnClickListener(this);
     }
 
     @Override
@@ -125,9 +125,10 @@ public class ProductDetailActivity extends BaseActivity {
             case R.id.buy_product_detail_textView:
                 StartActivityUtil.goWithProduct(ProductDetailActivity.this, EditOrderActivity.class, mProduct);
                 break;
-            case R.id.add_car_product_detail_textView:
-                break;
             case R.id.go_to_shop_product_detail_constraintLayout:
+                // todo 进入店铺
+                break;
+            case R.id.shop_product_detail_constraintLayout:
                 break;
             default:
                 break;

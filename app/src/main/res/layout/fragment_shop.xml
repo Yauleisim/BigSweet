@@ -32,7 +32,7 @@
             android:layout_marginStart="16dp"
             android:background="@drawable/bg_shop_search"
             android:padding="10dp"
-            app:layout_constraintEnd_toStartOf="@id/car_shop_imageView"
+            app:layout_constraintEnd_toStartOf="@id/me_shop_imageView"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/release_shop_imageView">
 
@@ -56,14 +56,14 @@
         </android.support.constraint.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/car_shop_imageView"
+            android:id="@+id/me_shop_imageView"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:background="?android:attr/selectableItemBackground"
             android:padding="5dp"
-            android:src="@drawable/ic_shop_car"
+            android:src="@drawable/ic_home_me"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/search_shop_constraintLayout"
