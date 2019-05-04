@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_separator_view">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/prompt_release_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="请填写商品的基本信息" />
+
+            <View
+                android:id="@+id/separator_three_release_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/bg_separator_line" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/product_msg_edit_order_constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/name_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="商品名称"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/name_release_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="请填写商品名称"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toTopOf="@id/separator_one_release_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/name_release_textView"
+                    app:layout_constraintTop_toTopOf="@id/name_release_textView" />
+
+                <View
+                    android:id="@+id/separator_one_release_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/bg_separator_line"
+                    app:layout_constraintTop_toBottomOf="@id/name_release_editText" />
+
+                <TextView
+                    android:id="@+id/price_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="商品价格"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintTop_toBottomOf="@id/separator_one_release_view" />
+
+                <EditText
+                    android:id="@+id/price_release_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="请填写商品价格"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="@id/price_release_textView"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/price_release_textView" />
+
+                <View
+                    android:id="@+id/separator_two_release_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/bg_separator_line"
+                    app:layout_constraintTop_toBottomOf="@id/price_release_editText" />
+
+                <TextView
+                    android:id="@+id/describe_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="商品描述"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintTop_toBottomOf="@id/separator_two_release_view" />
+
+                <EditText
+                    android:id="@+id/describe_release_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="请填写商品描述"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/describe_release_textView"
+                    app:layout_constraintTop_toTopOf="@id/describe_release_textView" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/separator_four_release_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_separator_line" />
+
+            <TextView
+                android:id="@+id/prompt2_release_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="请填写商品的标签信息" />
+
+            <View
+                android:id="@+id/separator_five_release_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/bg_separator_line" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/tag_msg_release_ConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/tag1_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="标签一"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/tag1_release_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="请填写标签一(限制长度为4)"
+                    android:maxLength="4"
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/tag1_release_textView"
+                    app:layout_constraintTop_toTopOf="@id/tag1_release_textView" />
+
+                <TextView
+                    android:id="@+id/tag2_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="标签二"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintTop_toBottomOf="@id/tag1_release_editText" />
+
+                <EditText
+                    android:id="@+id/tag2_release_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="请填写标签二(限制长度为4)"
+                    android:maxLength="4"
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/tag2_release_textView"
+                    app:layout_constraintTop_toTopOf="@id/tag2_release_textView" />
+
+                <TextView
+                    android:id="@+id/tag3_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="标签三"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintTop_toBottomOf="@id/tag2_release_editText" />
+
+                <EditText
+                    android:id="@+id/tag3_release_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="请填写标签三(限制长度为4)"
+                    android:maxLength="4"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/tag3_release_textView"
+                    app:layout_constraintTop_toTopOf="@id/tag3_release_textView" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/separator_six_release_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_separator_line" />
+
+            <TextView
+                android:id="@+id/prompt4_certify_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="请选择商品分类" />
+
+            <View
+                android:id="@+id/separator_seven_release_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/bg_separator_line" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/type_release_constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/type_release_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="请选择商品类型"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_go_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/separator_eight_release_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_separator_line" />
+
+            <TextView
+                android:id="@+id/prompt3_release_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="请添加商品照片" />
+
+            <LinearLayout
+                android:id="@+id/add_picture_release_LinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:id="@+id/add_picture_post_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_add_picture" />
+
+                <ImageView
+                    android:id="@+id/one_picture_post_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_add_picture" />
+
+                <ImageView
+                    android:id="@+id/two_picture_post_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_add_picture" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/release_release_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="36dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_post_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="发布商品"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintTop_toBottomOf="@id/add_picture_release_LinearLayout" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

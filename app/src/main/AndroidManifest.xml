@@ -50,6 +50,7 @@
         <activity android:name=".settings.IntroduceActivity" />
         <activity android:name=".person.OrderDetailActivity" />
         <activity android:name=".settings.CertifyActivity" />
+        <activity android:name=".shop.ReleaseActivity" />
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"

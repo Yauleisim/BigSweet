@@ -12,19 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.graduation.yau.bigsweet.GlideImageLoader;
 import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.home.HomeFragment;
 import com.graduation.yau.bigsweet.model.Product;
+import com.graduation.yau.bigsweet.model.Seller;
+import com.graduation.yau.bigsweet.model.User;
 import com.graduation.yau.bigsweet.util.ClassifyUtil;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
+import com.graduation.yau.bigsweet.util.ToastUtil;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -149,9 +154,29 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.release_shop_imageView:
                 // 发布商品页
+                isSeller();
                 break;
             default:
                 break;
         }
+    }
+
+    private void isSeller() {
+        BmobQuery<Seller> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereEqualTo("userId", BmobUser.getCurrentUser(User.class).getObjectId());
+        bmobQuery.findObjects(new FindListener<Seller>() {
+            @Override
+            public void done(List<Seller> object, BmobException e) {
+                if (e == null) {
+                    if (object != null && object.size() > 0 && object.get(0).isAuthentication()) {
+                        StartActivityUtil.go(getActivity(), ReleaseActivity.class);
+                    } else {
+                        ToastUtil.show(getContext(), R.string.activity_shop_error, Toast.LENGTH_SHORT, false);
+                    }
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

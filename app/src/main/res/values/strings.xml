@@ -195,6 +195,7 @@
     <string name="activity_shop_sale">已售 </string>
     <string name="activity_shop_price">￥ </string>
     <string name="activity_shop_tag"> | </string>
+    <string name="activity_shop_error">还没有通过认证成为卖家，不能发布商品</string>
 
     <string name="activity_product_detail_title">商品详情</string>
     <string name="activity_product_detail_sale">在售商品</string>
@@ -229,5 +230,7 @@
     <string name="activity_certify_title">身份认证</string>
     <string name="activity_certify_dialog_title">证件类型</string>
     <string name="activity_certify_error">上传证件照失败，请稍候重试</string>
+
+    <string name="activity_release_title">发布商品</string>
 
 </resources>
