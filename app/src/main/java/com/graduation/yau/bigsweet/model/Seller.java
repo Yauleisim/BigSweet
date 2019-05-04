@@ -12,7 +12,17 @@ public class Seller extends BmobObject {
 
     private String avatarUrl;
 
-    private String authentication;
+    private boolean authentication;
+
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getName() {
         return name;
@@ -30,11 +40,11 @@ public class Seller extends BmobObject {
         this.avatarUrl = avatarUrl;
     }
 
-    public String getAuthentication() {
+    public boolean isAuthentication() {
         return authentication;
     }
 
-    public void setAuthentication(String authentication) {
+    public void setAuthentication(boolean authentication) {
         this.authentication = authentication;
     }
 }

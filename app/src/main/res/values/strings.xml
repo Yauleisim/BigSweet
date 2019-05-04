@@ -32,6 +32,7 @@
     <string name="activity_settings_user_msg">个人资料</string>
     <string name="activity_settings_account_and_security">账号与安全</string>
     <string name="activity_settings_certification">申请认证</string>
+    <string name="activity_settings_certification_success">申请认证(已认证)</string>
     <string name="activity_settings_about">关于一点甜</string>
     <string name="activity_settings_feedback">意见反馈</string>
     <string name="activity_settings_sign_out">退出</string>
@@ -224,5 +225,9 @@
     <string name="activity_classification_dialog_title">选择排序方式</string>
 
     <string name="fragment_order_detail">查看详情</string>
+
+    <string name="activity_certify_title">身份认证</string>
+    <string name="activity_certify_dialog_title">证件类型</string>
+    <string name="activity_certify_error">上传证件照失败，请稍候重试</string>
 
 </resources>

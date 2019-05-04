@@ -110,12 +110,12 @@
         app:layout_constraintTop_toBottomOf="@id/accountAndSecurity_settings_constraintLayout">
 
         <TextView
+            android:id="@+id/certification_settings_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
-            android:text="@string/activity_settings_certification"
             android:textColor="@color/text_color"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
