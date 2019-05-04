@@ -3,6 +3,7 @@ package com.graduation.yau.bigsweet.util;
 import android.content.Context;
 import android.content.Intent;
 
+import com.graduation.yau.bigsweet.model.Order;
 import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.Product;
 
@@ -65,6 +66,16 @@ public class StartActivityUtil {
         try {
             Intent mIntent = new Intent(fromActivity, toActivity);
             mIntent.putExtra("title", title);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void goWithOrder(Context fromActivity, Class toActivity, Order order) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("order", order);
             fromActivity.startActivity(mIntent);
         } catch (Exception e) {
             e.printStackTrace();

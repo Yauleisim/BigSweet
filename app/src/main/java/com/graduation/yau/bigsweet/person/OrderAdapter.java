@@ -16,6 +16,7 @@ import com.graduation.yau.bigsweet.model.Order;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.model.Seller;
 import com.graduation.yau.bigsweet.util.ConvertUtil;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +93,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         viewHolder.mRootConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo 跳转至订单详情页
+                StartActivityUtil.goWithOrder(mContext, OrderDetailActivity.class, currentOrder);
             }
         });
     }
