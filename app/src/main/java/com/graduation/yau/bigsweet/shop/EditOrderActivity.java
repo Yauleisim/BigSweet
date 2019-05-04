@@ -15,7 +15,9 @@ import com.graduation.yau.bigsweet.model.Order;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.model.Seller;
 import com.graduation.yau.bigsweet.model.User;
+import com.graduation.yau.bigsweet.person.OrderDetailActivity;
 import com.graduation.yau.bigsweet.util.ConvertUtil;
+import com.graduation.yau.bigsweet.util.StartActivityUtil;
 import com.graduation.yau.bigsweet.util.TextUtil;
 import com.graduation.yau.bigsweet.util.ToastUtil;
 
@@ -141,7 +143,7 @@ public class EditOrderActivity extends BaseActivity {
             return;
         }
 
-        Order order = new Order();
+        final Order order = new Order();
         order.setAddress(address);
         order.setConsignee(consignee);
         order.setPhone(phone);
@@ -167,8 +169,8 @@ public class EditOrderActivity extends BaseActivity {
                             }
                         }
                     });
-                    // todo 可能要写一个订单完成的页面
                     finish();
+                    StartActivityUtil.goWithOrder(EditOrderActivity.this, OrderDetailActivity.class, order);
                 } else {
                     e.printStackTrace();
                     ToastUtil.show(EditOrderActivity.this, R.string.activity_edit_order_fail, Toast.LENGTH_SHORT, false);
