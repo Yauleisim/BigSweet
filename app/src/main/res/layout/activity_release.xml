@@ -305,7 +305,7 @@
                 android:padding="12dp">
 
                 <ImageView
-                    android:id="@+id/add_picture_post_imageView"
+                    android:id="@+id/pic1_release_imageView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -315,20 +315,22 @@
                     android:src="@drawable/ic_add_picture" />
 
                 <ImageView
-                    android:id="@+id/one_picture_post_imageView"
+                    android:id="@+id/pic2_release_imageView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="?android:attr/selectableItemBackground"
-                    android:src="@drawable/ic_add_picture" />
+                    android:src="@drawable/ic_add_picture"
+                    android:visibility="invisible" />
 
                 <ImageView
-                    android:id="@+id/two_picture_post_imageView"
+                    android:id="@+id/pic3_release_imageView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="?android:attr/selectableItemBackground"
-                    android:src="@drawable/ic_add_picture" />
+                    android:src="@drawable/ic_add_picture"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 

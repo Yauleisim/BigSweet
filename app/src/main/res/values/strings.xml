@@ -232,5 +232,8 @@
     <string name="activity_certify_error">上传证件照失败，请稍候重试</string>
 
     <string name="activity_release_title">发布商品</string>
+    <string name="activity_release_success">发布商品成功</string>
+    <string name="activity_release_fail">发布商品失败</string>
+    <string name="activity_release_dialog_title">发布中</string>
 
 </resources>
