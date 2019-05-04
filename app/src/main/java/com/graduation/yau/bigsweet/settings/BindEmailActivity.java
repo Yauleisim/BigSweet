@@ -17,6 +17,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
@@ -69,15 +70,28 @@ public class BindEmailActivity extends BaseActivity {
         bmobQuery.findObjects(new FindListener<User>() {
             @Override
             public void done(List<User> object, BmobException e) {
-                if (object != null && object.size() > 0) {
+                if (object != null && object.size() > 0 && object.get(0).getEmailVerified()) {
                     ToastUtil.show(BindEmailActivity.this, R.string.activity_bind_email_exist_email, Toast.LENGTH_SHORT, false);
                 } else {
-                    BmobUser.requestEmailVerify(email, new UpdateListener() {
+                    User user = BmobUser.getCurrentUser(User.class);
+                    user.setEmail(email);
+                    user.setUsername(null);
+                    user.update(new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
                             if (e == null) {
-                                ToastUtil.show(BindEmailActivity.this, R.string.activity_bind_email_success, Toast.LENGTH_SHORT, true);
-                                finish();
+                                BmobUser.requestEmailVerify(email, new UpdateListener() {
+                                    @Override
+                                    public void done(BmobException e) {
+                                        if (e == null) {
+                                            ToastUtil.show(BindEmailActivity.this, R.string.activity_bind_email_success, Toast.LENGTH_SHORT, true);
+                                            finish();
+                                        } else {
+                                            e.printStackTrace();
+                                            ToastUtil.show(BindEmailActivity.this, R.string.activity_bind_email_fail, Toast.LENGTH_SHORT, false);
+                                        }
+                                    }
+                                });
                             } else {
                                 e.printStackTrace();
                                 ToastUtil.show(BindEmailActivity.this, R.string.activity_bind_email_fail, Toast.LENGTH_SHORT, false);

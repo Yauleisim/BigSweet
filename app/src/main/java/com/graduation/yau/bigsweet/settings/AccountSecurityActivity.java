@@ -10,6 +10,8 @@ import com.graduation.yau.bigsweet.base.BaseActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FetchUserInfoListener;
 
 /**
  * Created by YAULEISIM on 2019/4/1.
@@ -42,23 +44,27 @@ public class AccountSecurityActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        User user = BmobUser.getCurrentUser(User.class);
+        BmobUser.fetchUserInfo(new FetchUserInfoListener<BmobUser>() {
+            @Override
+            public void done(BmobUser bmobUser, BmobException e) {
+                User user = BmobUser.getCurrentUser(User.class);
+                if (user.getMobilePhoneNumberVerified() == null || !user.getMobilePhoneNumberVerified()) {
+                    // 没有绑定手机号
+                    mPhoneTextView.setText(R.string.activity_account_security_no);
+                    findViewById(R.id.phone_account_security_constraintLayout).setOnClickListener(AccountSecurityActivity.this);
+                } else {
+                    // 有绑定手机号
+                    mPhoneTextView.setText(user.getMobilePhoneNumber());
+                }
 
-        if (user.getMobilePhoneNumberVerified() == null || !user.getMobilePhoneNumberVerified()) {
-            // 没有绑定手机号
-            mPhoneTextView.setText(R.string.activity_account_security_no);
-            findViewById(R.id.phone_account_security_constraintLayout).setOnClickListener(this);
-        } else {
-            // 有绑定手机号
-            mPhoneTextView.setText(user.getMobilePhoneNumber());
-        }
-
-        if (user.getEmailVerified() == null || !user.getEmailVerified()) {
-            mEmailTextView.setText(R.string.activity_account_security_no);
-            findViewById(R.id.email_account_security_constraintLayout).setOnClickListener(this);
-        } else {
-            mEmailTextView.setText(user.getEmail());
-        }
+                if (user.getEmailVerified() == null || !user.getEmailVerified()) {
+                    mEmailTextView.setText(R.string.activity_account_security_no);
+                    findViewById(R.id.email_account_security_constraintLayout).setOnClickListener(AccountSecurityActivity.this);
+                } else {
+                    mEmailTextView.setText(user.getEmail());
+                }
+            }
+        });
     }
 
     @Override
