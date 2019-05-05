@@ -49,7 +49,6 @@ public class RecommendFragment extends Fragment {
 
     protected void initView(View root) {
         mPostRecommendRecyclerView = root.findViewById(R.id.post_recommend_recyclerView);
-
     }
 
     protected void initEvent() {

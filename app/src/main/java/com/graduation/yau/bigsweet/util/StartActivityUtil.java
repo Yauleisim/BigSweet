@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.graduation.yau.bigsweet.model.Order;
 import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.Product;
+import com.graduation.yau.bigsweet.model.Seller;
 
 /**
  * Created by YAULEISIM on 2019/4/2.
@@ -76,6 +77,16 @@ public class StartActivityUtil {
         try {
             Intent mIntent = new Intent(fromActivity, toActivity);
             mIntent.putExtra("order", order);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void goWithSeller(Context fromActivity, Class toActivity, Seller seller) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("seller", seller);
             fromActivity.startActivity(mIntent);
         } catch (Exception e) {
             e.printStackTrace();

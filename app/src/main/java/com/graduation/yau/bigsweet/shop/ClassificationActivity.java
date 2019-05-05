@@ -33,15 +33,15 @@ import cn.bmob.v3.listener.SQLQueryListener;
 public class ClassificationActivity extends BaseActivity {
 
     private RecyclerView mProductRecyclerView;
-    private ProductAdapter mProductAdapter;
-    private ArrayList<Product> mProductList = new ArrayList<>();
+    protected ProductAdapter mProductAdapter;
+    protected ArrayList<Product> mProductList = new ArrayList<>();
     private String mClassification;
     private LinearLayout mSaleOrderLinearLayout, mPriceOrderLinearLayout;
     private TextView mSaleOrderTextView, mPriceOrderTextView;
     private ImageView mSaleOrderImageView, mPriceOrderImageView;
     private String[] items = {"升序", "降序"};
-    private int mOrderChoice = 0;
-    private boolean isSale;
+    protected int mOrderChoice = 0;
+    protected boolean isSale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class ClassificationActivity extends BaseActivity {
         mPriceOrderLinearLayout.setOnClickListener(this);
     }
 
-    private void initData() {
+    protected void initData() {
         BmobQuery<Product> productQuery = new BmobQuery<>();
         productQuery.addWhereEqualTo("classification", mClassification);
         productQuery.findObjects(new FindListener<Product>() {
@@ -131,7 +131,7 @@ public class ClassificationActivity extends BaseActivity {
         }
     };
 
-    private void updateData() {
+    protected void updateData() {
         BmobQuery<Product> productQuery = new BmobQuery<>();
         String bql;
         if (mOrderChoice == 0) {
@@ -176,7 +176,7 @@ public class ClassificationActivity extends BaseActivity {
         });
     }
 
-    private void updateUI() {
+    protected void updateUI() {
         if (mOrderChoice == 0) {
             // 升序
             if (isSale) {

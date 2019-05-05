@@ -127,8 +127,10 @@ public class ProductDetailActivity extends BaseActivity {
                 break;
             case R.id.go_to_shop_product_detail_constraintLayout:
                 // todo 进入店铺
+                StartActivityUtil.goWithSeller(ProductDetailActivity.this, ShopDetailActivity.class, mSeller);
                 break;
             case R.id.shop_product_detail_constraintLayout:
+                StartActivityUtil.goWithSeller(ProductDetailActivity.this, ShopDetailActivity.class, mSeller);
                 break;
             default:
                 break;
