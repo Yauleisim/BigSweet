@@ -92,4 +92,14 @@ public class StartActivityUtil {
             e.printStackTrace();
         }
     }
+
+    public static void goWithFrom(Context fromActivity, Class toActivity, String where) {
+        try {
+            Intent mIntent = new Intent(fromActivity, toActivity);
+            mIntent.putExtra("from", where);
+            fromActivity.startActivity(mIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

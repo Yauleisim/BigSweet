@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.graduation.yau.bigsweet.GlideImageLoader;
 import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.SearchActivity;
 import com.graduation.yau.bigsweet.home.HomeFragment;
 import com.graduation.yau.bigsweet.model.Product;
 import com.graduation.yau.bigsweet.model.Seller;
@@ -40,6 +41,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     private ProductAdapter mProductAdapter;
     private ArrayList<Product> mProductList = new ArrayList<>();
     private ConstraintLayout mBakeConstraintLayout, mSugarConstraintLayout, mFruitConstraintLayout, mDrinkConstraintLayout, mSnackConstraintLayout, mSeasoningConstraintLayout, mBoxConstraintLayout, mUtensilsConstraintLayout;
+    private ConstraintLayout mSearchConstarintLayout;
     private ImageView mReleaseImageView, mMeImageView;
 
     @Nullable
@@ -68,6 +70,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
         mUtensilsConstraintLayout = root.findViewById(R.id.utensils_shop_constraintLayout);
         mReleaseImageView = root.findViewById(R.id.release_shop_imageView);
         mMeImageView = root.findViewById(R.id.me_shop_imageView);
+        mSearchConstarintLayout = root.findViewById(R.id.search_shop_constraintLayout);
     }
 
     private void initEvent() {
@@ -100,6 +103,8 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
         mReleaseImageView.setOnClickListener(this);
         mMeImageView.setOnClickListener(this);
+
+        mSearchConstarintLayout.setOnClickListener(this);
     }
 
     private void initData() {
@@ -155,6 +160,9 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
             case R.id.release_shop_imageView:
                 // 发布商品页
                 isSeller();
+                break;
+            case R.id.search_shop_constraintLayout:
+                StartActivityUtil.goWithFrom(getActivity(), SearchActivity.class, SearchActivity.FROM_SHOP);
                 break;
             default:
                 break;

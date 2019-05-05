@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.graduation.yau.bigsweet.PostActivity;
 import com.graduation.yau.bigsweet.R;
+import com.graduation.yau.bigsweet.SearchActivity;
 import com.graduation.yau.bigsweet.util.StartActivityUtil;
 
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private void initEvent(View root) {
         root.findViewById(R.id.post_home_imageView).setOnClickListener(this);
         root.findViewById(R.id.me_home_imageView).setOnClickListener(this);
+        root.findViewById(R.id.search_home_constraintLayout).setOnClickListener(this);
 
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new FollowFragment());
@@ -66,6 +68,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 if (getActivity() instanceof goToPersonFragment) {
                     ((goToPersonFragment) getActivity()).go();
                 }
+                break;
+            case R.id.search_home_constraintLayout:
+                StartActivityUtil.goWithFrom(getActivity(), SearchActivity.class, SearchActivity.FROM_HOME);
                 break;
             default:
                 break;
