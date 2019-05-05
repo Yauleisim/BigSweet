@@ -1,14 +1,5 @@
 package com.graduation.yau.bigsweet.home;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.graduation.yau.bigsweet.R;
 import com.graduation.yau.bigsweet.model.Post;
 import com.graduation.yau.bigsweet.model.User;
 
@@ -28,8 +19,6 @@ public class FollowFragment extends RecommendFragment {
 
     @Override
     protected void initData() {
-        BmobQuery<Post> orderQuery = new BmobQuery<>();
-        orderQuery.order("-likeCount");
         BmobQuery<Post> publicQuery = new BmobQuery<>();
         publicQuery.addWhereEqualTo("isPublic", true);
         BmobQuery<Post> followQuery = new BmobQuery<>();
@@ -37,7 +26,6 @@ public class FollowFragment extends RecommendFragment {
         followQuery.addWhereContainedIn("userId", currentUser.getFollowList());
 
         List<BmobQuery<Post>> andQuerys = new ArrayList<BmobQuery<Post>>();
-        andQuerys.add(orderQuery);
         andQuerys.add(publicQuery);
         andQuerys.add(followQuery);
         BmobQuery<Post> postBmobQuery = new BmobQuery<>();
