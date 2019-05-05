@@ -38,7 +38,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     private ViewPager mPersonShiftViewPager;
     private PersonShiftViewPagerAdapter mPersonShiftViewPagerAdapter;
     private TabLayout mPersonTabLayout;
-    private TextView mNameTextView, mSignatureTextView, mFollowTextView, mGetLikeTextView;
+    private TextView mNameTextView, mSignatureTextView, mFollowTextView, mGetLikeTextView, mTitleTextView;
     private ImageView mAvatarImageView;
 
     @Nullable
@@ -79,6 +79,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         } else {
             Glide.with(this).load(avatarUrl).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(mAvatarImageView);
         }
+
+        mTitleTextView.setText("甜心号：" + currentUser.getObjectId());
     }
 
     private void initView(View root) {
@@ -90,6 +92,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         mFollowTextView = root.findViewById(R.id.follow_count_person_textView);
         mGetLikeTextView = root.findViewById(R.id.get_like_count_person_textView);
         mAvatarImageView = root.findViewById(R.id.avatar_person_imageView);
+
+        mTitleTextView = root.findViewById(R.id.title_person_textView);
     }
 
     private void initEvent(View root) {
