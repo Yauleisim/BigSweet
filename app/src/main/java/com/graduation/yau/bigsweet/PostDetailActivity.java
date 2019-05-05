@@ -114,7 +114,7 @@ public class PostDetailActivity extends BaseActivity {
         } else {
             mLabelConstraintLayout.setVisibility(View.GONE);
         }
-        mPostTimeTextView.setText(mPost.getUpdatedAt());
+        mPostTimeTextView.setText(mPost.getCreatedAt());
 
         BmobQuery<User> userBmobQuery = new BmobQuery<>();
         userBmobQuery.addWhereEqualTo("objectId", mPost.getUserId());
