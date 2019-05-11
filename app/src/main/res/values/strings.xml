@@ -235,5 +235,6 @@
     <string name="activity_release_success">发布商品成功</string>
     <string name="activity_release_fail">发布商品失败</string>
     <string name="activity_release_dialog_title">发布中</string>
+    <string name="activity_release_single_dialog_title">商品分类</string>
 
 </resources>

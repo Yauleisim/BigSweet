@@ -102,7 +102,7 @@ public class ReleaseActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.type_release_constraintLayout:
-                DialogUtil.showSingleChoiceDialog(this, items, R.string.activity_post_public, choiceListener, positiveListener);
+                DialogUtil.showSingleChoiceDialog(this, items, R.string.activity_release_single_dialog_title, choiceListener, positiveListener);
                 break;
             case R.id.release_release_button:
                 doRelease();
